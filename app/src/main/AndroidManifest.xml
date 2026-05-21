@@ -117,7 +117,7 @@
                 <action android:name="ecarx.intent.broadcast.action.MEDIA_CONTROL_RECEIVER"/>
                 <action android:name="com.geely.mediawidget.ACTION_WIDGET_TOGGLE_PLAY"/>
                 <action android:name="com.geely.mediawidget.ACTION_WIDGET_NEXT"/>
-                <action name="com.geely.mediawidget.ACTION_WIDGET_PREV"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_PREV"/>
             </intent-filter>
         </receiver>
 
