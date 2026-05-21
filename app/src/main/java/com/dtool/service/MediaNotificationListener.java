@@ -43,7 +43,8 @@ public class MediaNotificationListener extends NotificationListenerService {
         "com.ss.android.ugc.aweme.lite", // 抖音Lite
     };
 
-    // 当前播放信息
+    // 当前播放信息（使用同步锁保证线程安全）
+    private static final Object lock = new Object();
     private static MediaInfo currentMedia = null;
 
     // 广播Action
@@ -69,7 +70,9 @@ public class MediaNotificationListener extends NotificationListenerService {
         MediaInfo mediaInfo = parseMediaNotification(packageName, notification);
 
         if (mediaInfo != null) {
-            currentMedia = mediaInfo;
+            synchronized(lock) {
+                currentMedia = mediaInfo;
+            }
             Log.d(TAG, "媒体通知已更新: " + mediaInfo.title + " - " + mediaInfo.artist);
 
             // 广播更新
@@ -83,8 +86,21 @@ public class MediaNotificationListener extends NotificationListenerService {
 
         if (isMediaPackage(packageName)) {
             Log.d(TAG, "媒体通知已移除: " + packageName);
-            // 可选：通知移除时清空当前播放信息
+            // 清空当前播放信息
+            synchronized(lock) {
+                currentMedia = null;
+            }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // 清理资源
+        synchronized(lock) {
+            currentMedia = null;
+        }
+        Log.d(TAG, "MediaNotificationListener已销毁");
     }
 
     /**
@@ -135,9 +151,12 @@ public class MediaNotificationListener extends NotificationListenerService {
         info.appName = getAppName(packageName);
 
         // 获取通知内容
-        info.title = notification.extras.getCharSequence(Notification.EXTRA_TITLE, "");
-        info.artist = notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT, "");
-        info.album = notification.extras.getCharSequence(Notification.EXTRA_TEXT, "");
+        CharSequence titleSeq = notification.extras.getCharSequence(Notification.EXTRA_TITLE, "");
+        info.title = titleSeq != null ? titleSeq.toString() : "";
+        CharSequence artistSeq = notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT, "");
+        info.artist = artistSeq != null ? artistSeq.toString() : "";
+        CharSequence albumSeq = notification.extras.getCharSequence(Notification.EXTRA_TEXT, "");
+        info.album = albumSeq != null ? albumSeq.toString() : "";
 
         // 获取播放状态
         info.isPlaying = isPlaying(notification);
@@ -229,7 +248,9 @@ public class MediaNotificationListener extends NotificationListenerService {
      * 获取当前媒体信息
      */
     public static MediaInfo getCurrentMedia() {
-        return currentMedia;
+        synchronized(lock) {
+            return currentMedia != null ? new MediaInfo(currentMedia) : null;
+        }
     }
 
     /**
@@ -243,6 +264,22 @@ public class MediaNotificationListener extends NotificationListenerService {
         public String album;
         public boolean isPlaying;
         public boolean hasAlbumArt;
+
+        // 复制构造函数
+        public MediaInfo(MediaInfo other) {
+            if (other != null) {
+                this.packageName = other.packageName;
+                this.appName = other.appName;
+                this.title = other.title;
+                this.artist = other.artist;
+                this.album = other.album;
+                this.isPlaying = other.isPlaying;
+                this.hasAlbumArt = other.hasAlbumArt;
+            }
+        }
+
+        public MediaInfo() {
+        }
 
         @Override
         public String toString() {

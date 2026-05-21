@@ -20,17 +20,17 @@
     <!-- 无障碍服务权限 -->
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
 
-    <!-- Car系权限 (用于车机通信) -->
-    <uses-permission android:name="android.car.permission.CAR_INFO"/>
-    <uses-permission android:name="android.car.permission.CAR_ENERGY"/>
-    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_ENVIRONMENT"/>
-    <uses-permission android:name="android.car.permission.CONTROL_CAR_CLIMATE"/>
-
-    <!-- 系统设置权限 -->
-    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
     <!-- 自定义权限 -->
+    <permission android:name="com.dtool.permission.ACCESS_MEDIA_INFO"
+        android:protectionLevel="signature"
+        android:label="@string/permission_access_media_info"
+        android:description="@string/permission_access_media_info_desc"/>
+
+    <permission android:name="com.dtool.permission.MEDIA_CONTROL"
+        android:protectionLevel="signature"
+        android:label="@string/permission_media_control"
+        android:description="@string/permission_media_control_desc"/>
+
     <permission android:name="com.dtool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature"/>
 
@@ -111,7 +111,8 @@
         <receiver
             android:name=".receiver.DesktopCardReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="com.dtool.permission.MEDIA_CONTROL">
             <intent-filter>
                 <action android:name="cn.dtool.action.HOST_WIDGET_REFRESH"/>
                 <action android:name="ecarx.intent.broadcast.action.MEDIA_CONTROL_RECEIVER"/>
@@ -127,7 +128,8 @@
             android:enabled="true"
             android:exported="true"
             android:authorities="com.dtool.media"
-            android:grantUriPermissions="true"/>
+            android:grantUriPermissions="true"
+            android:permission="com.dtool.permission.ACCESS_MEDIA_INFO"/>
 
         <!-- 文件提供者 -->
         <provider

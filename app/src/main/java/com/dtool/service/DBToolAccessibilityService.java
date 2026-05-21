@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import java.lang.ref.WeakReference;
+
 /**
  * DBTool无障碍服务
  *
@@ -19,19 +21,20 @@ import android.view.accessibility.AccessibilityNodeInfo;
 public class DBToolAccessibilityService extends AccessibilityService {
 
     private static final String TAG = "DBToolAccessibilityService";
-    private static DBToolAccessibilityService instance = null;
+    // 使用WeakReference避免内存泄漏
+    private static WeakReference<DBToolAccessibilityService> instanceRef = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
+        instanceRef = new WeakReference<>(this);
         Log.d(TAG, "DBToolAccessibilityService已创建");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        instance = null;
+        instanceRef = null;
         Log.d(TAG, "DBToolAccessibilityService已销毁");
     }
 
@@ -75,6 +78,7 @@ public class DBToolAccessibilityService extends AccessibilityService {
      * 发送媒体按键
      */
     public static void sendMediaKey(int keyCode) {
+        DBToolAccessibilityService instance = instanceRef != null ? instanceRef.get() : null;
         if (instance == null) {
             Log.w(TAG, "无障碍服务未连接");
             return;
@@ -83,11 +87,14 @@ public class DBToolAccessibilityService extends AccessibilityService {
         try {
             AudioManager audioManager = (AudioManager) instance.getSystemService(AudioManager.class);
             if (audioManager != null) {
-                // 需要先获取焦点
-                instance.dispatchMediaKeyEvent(new android.view.KeyEvent(
-                    android.view.KeyEvent.ACTION_DOWN, keyCode));
-                instance.dispatchMediaKeyEvent(new android.view.KeyEvent(
-                    android.view.KeyEvent.ACTION_UP, keyCode));
+                // 发送按键事件
+                android.view.KeyEvent downEvent = new android.view.KeyEvent(
+                    android.view.KeyEvent.ACTION_DOWN, keyCode);
+                audioManager.dispatchMediaKeyEvent(downEvent);
+                
+                android.view.KeyEvent upEvent = new android.view.KeyEvent(
+                    android.view.KeyEvent.ACTION_UP, keyCode);
+                audioManager.dispatchMediaKeyEvent(upEvent);
 
                 Log.d(TAG, "发送媒体按键: " + keyCode);
             }

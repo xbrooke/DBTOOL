@@ -72,7 +72,8 @@ public class NowPlayingProvider extends ContentProvider {
 
             default:
                 Log.w(TAG, "Unknown uri: " + uri);
-                return null;
+                // 返回空Cursor而不是null，避免NPE
+                return new MatrixCursor(new String[]{});
         }
     }
 

@@ -147,12 +147,6 @@ public class DesktopCardReceiver extends BroadcastReceiver {
         try {
             AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
             if (audioManager != null) {
-                // 检查是否允许模拟按键
-                if (!audioManager.isVolumeKeyEventEnabled(streamType)) {
-                    Log.w(TAG, "音量键被禁用");
-                    return;
-                }
-
                 // 发送按键事件
                 KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, keyCode);
                 audioManager.dispatchMediaKeyEvent(event);

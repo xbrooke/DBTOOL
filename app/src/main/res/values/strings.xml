@@ -6,4 +6,10 @@
     <string name="notification_listener_description">用于读取音乐播放信息</string>
     <string name="accessibility_service_label">DBTOOL辅助服务</string>
     <string name="accessibility_service_description">用于模拟点击和音乐控制</string>
+    
+    <!-- 自定义权限 -->
+    <string name="permission_access_media_info">访问媒体信息</string>
+    <string name="permission_access_media_info_desc">允许应用访问当前播放的媒体信息</string>
+    <string name="permission_media_control">媒体控制</string>
+    <string name="permission_media_control_desc">允许应用发送媒体控制命令</string>
 </resources>
