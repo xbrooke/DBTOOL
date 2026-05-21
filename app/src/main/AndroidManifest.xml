@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dtool"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+
+    <!-- 基础权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
+    <!-- 存储权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- 通知监听权限 -->
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
+
+    <!-- 无障碍服务权限 -->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+
+    <!-- Car系权限 (用于车机通信) -->
+    <uses-permission android:name="android.car.permission.CAR_INFO"/>
+    <uses-permission android:name="android.car.permission.CAR_ENERGY"/>
+    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_ENVIRONMENT"/>
+    <uses-permission android:name="android.car.permission.CONTROL_CAR_CLIMATE"/>
+
+    <!-- 系统设置权限 -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- 自定义权限 -->
+    <permission android:name="com.dtool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.dtool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+
+    <application
+        android:name=".DBToolApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DBTOOL">
+
+        <!-- 主界面 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 激活页面 -->
+        <activity
+            android:name=".activity.ActivationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DBTOOL.Dialog"/>
+
+        <!-- 启动接收器 -->
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 媒体通知监听服务 -->
+        <service
+            android:name=".service.MediaNotificationListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
+        <!-- 无障碍服务 (用于模拟点击) -->
+        <service
+            android:name=".service.DBToolAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config"/>
+        </service>
+
+        <!-- 核心服务 -->
+        <service
+            android:name=".service.VehicleCoreService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"/>
+
+        <!-- 桌面卡片广播接收器 -->
+        <receiver
+            android:name=".receiver.DesktopCardReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.dtool.action.HOST_WIDGET_REFRESH"/>
+                <action android:name="ecarx.intent.broadcast.action.MEDIA_CONTROL_RECEIVER"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_TOGGLE_PLAY"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_NEXT"/>
+                <action name="com.geely.mediawidget.ACTION_WIDGET_PREV"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 媒体内容提供者 -->
+        <provider
+            android:name=".provider.NowPlayingProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:authorities="com.dtool.media"
+            android:grantUriPermissions="true"/>
+
+        <!-- 文件提供者 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:authorities="com.dtool.fileprovider">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+    </application>
+</manifest>

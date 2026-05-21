@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DBTOOL"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="服务状态"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="检查中..."
+        android:textSize="14sp"
+        android:background="#f0f0f0"
+        android:padding="12dp"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前播放"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_now_playing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="暂无播放"
+        android:textSize="14sp"
+        android:background="#f0f0f0"
+        android:padding="12dp"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btn_notification_listener"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激活通知监听服务"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btn_accessibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激活辅助功能服务"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btn_start_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动DBTOOL服务"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提示：需要同时激活通知监听和辅助功能服务才能正常工作"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:gravity="center"/>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DBTOOL</string>
+    <string name="activation_title">激活服务</string>
+    <string name="notification_listener_label">通知监听服务</string>
+    <string name="notification_listener_description">用于读取音乐播放信息</string>
+    <string name="accessibility_service_label">DBTOOL辅助服务</string>
+    <string name="accessibility_service_description">用于模拟点击和音乐控制</string>
+</resources>
