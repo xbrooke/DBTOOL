@@ -65,7 +65,7 @@ public class VehicleCoreService extends Service {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(
             this, 0, notificationIntent,
-            PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
         );
 
         Notification.Builder builder;
@@ -77,7 +77,7 @@ public class VehicleCoreService extends Service {
 
         builder.setContentTitle("DBTOOL 运行中")
             .setContentText("正在监听音乐播放状态")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)  // ✅ 使用系统图标
             .setContentIntent(pendingIntent)
             .setOngoing(true);
 

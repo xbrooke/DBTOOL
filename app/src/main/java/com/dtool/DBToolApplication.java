@@ -19,6 +19,12 @@ public class DBToolApplication extends Application {
         super.onCreate();
         Log.d(TAG, "DBTOOL Application started");
 
+        // 设置全局异常处理
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            Log.e(TAG, "未捕获的异常", throwable);
+            // 可以在这里上报异常或重启应用
+        });
+
         createNotificationChannel();
     }
 

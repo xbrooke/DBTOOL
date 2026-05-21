@@ -54,17 +54,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        tvStatus = findViewById(R.id.tv_status);
-        tvNowPlaying = findViewById(R.id.tv_now_playing);
-        btnNotificationListener = findViewById(R.id.btn_notification_listener);
-        btnAccessibility = findViewById(R.id.btn_accessibility);
-        btnStartService = findViewById(R.id.btn_start_service);
+        try {
+            tvStatus = findViewById(R.id.tv_status);
+            tvNowPlaying = findViewById(R.id.tv_now_playing);
+            btnNotificationListener = findViewById(R.id.btn_notification_listener);
+            btnAccessibility = findViewById(R.id.btn_accessibility);
+            btnStartService = findViewById(R.id.btn_start_service);
 
-        btnNotificationListener.setOnClickListener(v -> openNotificationListenerSettings());
+            // 添加null检查
+            if (btnNotificationListener != null) {
+                btnNotificationListener.setOnClickListener(v -> openNotificationListenerSettings());
+            }
 
-        btnAccessibility.setOnClickListener(v -> openAccessibilitySettings());
+            if (btnAccessibility != null) {
+                btnAccessibility.setOnClickListener(v -> openAccessibilitySettings());
+            }
 
-        btnStartService.setOnClickListener(v -> startCoreService());
+            if (btnStartService != null) {
+                btnStartService.setOnClickListener(v -> startCoreService());
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "初始化视图失败", e);
+            Toast.makeText(this, "初始化失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
