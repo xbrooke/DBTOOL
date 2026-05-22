@@ -50,6 +50,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    
+    // 强制每次构建时重新生成资源
+    tasks.whenTaskAdded { task ->
+        if (task.name == 'generateDebugResources' || task.name == 'generateReleaseResources') {
+            task.outputs.upToDateWhen { false }
+        }
+    }
 }
 
 dependencies {
