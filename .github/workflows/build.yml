@@ -41,11 +41,15 @@ jobs:
         run: |
           VERSION=$(grep "versionName" app/build.gradle | head -1 | grep -oP '"\K[^"]+')
           BUILD_DATE=$(date +%Y%m%d)
+          BUILD_TIME=$(date +%H%M)
           TAG_NAME="v${VERSION}-${BUILD_DATE}"
+          APK_NAME="${VERSION}-${BUILD_DATE}-${BUILD_TIME}"
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "build_date=${BUILD_DATE}" >> $GITHUB_OUTPUT
+          echo "build_time=${BUILD_TIME}" >> $GITHUB_OUTPUT
           echo "tag_name=${TAG_NAME}" >> $GITHUB_OUTPUT
-          echo "Version: ${VERSION}, Build Date: ${BUILD_DATE}, Tag: ${TAG_NAME}"
+          echo "apk_name=${APK_NAME}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION}, Build Date: ${BUILD_DATE}, Build Time: ${BUILD_TIME}, APK Name: ${APK_NAME}"
 
       - name: Build Release APK
         run: gradle assembleRelease
@@ -53,17 +57,37 @@ jobs:
       - name: Build Debug APK
         run: gradle assembleDebug
 
+      # 重命名Release APK
+      - name: Rename Release APK
+        run: |
+          mkdir -p renamed_apks
+          for apk in app/build/outputs/apk/release/*.apk; do
+            if [ -f "$apk" ]; then
+              cp "$apk" "renamed_apks/${{ steps.version.outputs.apk_name }}-release.apk"
+            fi
+          done
+
+      # 重命名Debug APK
+      - name: Rename Debug APK
+        run: |
+          mkdir -p renamed_apks
+          for apk in app/build/outputs/apk/debug/*.apk; do
+            if [ -f "$apk" ]; then
+              cp "$apk" "renamed_apks/${{ steps.version.outputs.apk_name }}-debug.apk"
+            fi
+          done
+
       - name: Upload Release APK to Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: DBTOOL-release
-          path: app/build/outputs/apk/release/*.apk
+          path: renamed_apks/*-release.apk
 
       - name: Upload Debug APK to Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: DBTOOL-debug
-          path: app/build/outputs/apk/debug/*.apk
+          path: renamed_apks/*-debug.apk
 
       # 检查tag是否已存在
       - name: Check if tag exists
@@ -92,8 +116,8 @@ jobs:
           tag_name: ${{ steps.version.outputs.tag_name }}
           name: DBTOOL ${{ steps.version.outputs.tag_name }}
           files: |
-            app/build/outputs/apk/release/*.apk
-            app/build/outputs/apk/debug/*.apk
+            renamed_apks/*-release.apk
+            renamed_apks/*-debug.apk
           draft: false
           prerelease: false
           body: |
@@ -102,16 +126,17 @@ jobs:
             ## 📦 发布信息
             - **版本**: ${{ steps.version.outputs.version }}
             - **构建日期**: ${{ steps.version.outputs.build_date }}
+            - **构建时间**: ${{ steps.version.outputs.build_time }}
             - **提交**: ${{ github.sha }}
             - **分支**: ${{ github.ref_name }}
             
             ## 📥 下载
-            - `app-release.apk` - Release版本（推荐用于生产环境）
-            - `app-debug.apk` - Debug版本（用于开发测试）
+            - `${{ steps.version.outputs.apk_name }}-release.apk` - Release版本（推荐用于生产环境）
+            - `${{ steps.version.outputs.apk_name }}-debug.apk` - Debug版本（用于开发测试）
             
             ## 🚀 安装方法
             ```bash
-            adb install -r app-release.apk
+            adb install -r ${{ steps.version.outputs.apk_name }}-release.apk
             ```
             
             ## 📝 更新日志
@@ -125,8 +150,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            app/build/outputs/apk/release/*.apk
-            app/build/outputs/apk/debug/*.apk
+            renamed_apks/*-release.apk
+            renamed_apks/*-debug.apk
           draft: false
           prerelease: false
           body: |
@@ -138,12 +163,12 @@ jobs:
             - **发布时间**: ${{ github.event.head_commit.timestamp }}
             
             ## 📥 下载
-            - `app-release.apk` - Release版本（推荐）
-            - `app-debug.apk` - Debug版本
+            - `${{ steps.version.outputs.apk_name }}-release.apk` - Release版本（推荐）
+            - `${{ steps.version.outputs.apk_name }}-debug.apk` - Debug版本
             
             ## 🚀 安装
             ```bash
-            adb install -r app-release.apk
+            adb install -r ${{ steps.version.outputs.apk_name }}-release.apk
             ```
             
             ## 📝 更新日志
