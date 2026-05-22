@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DBTOOL 激活"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="为了正常工作，DBTOOL需要以下权限："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. 通知监听权限\n   用于监听音乐播放信息\n\n2. 无障碍服务权限\n   用于控制音乐播放"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:background="#f0f0f0"
+        android:padding="12dp"/>
+
+    <Button
+        android:id="@+id/btn_notification_listener"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激活通知监听权限"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btn_accessibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激活无障碍服务权限"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="继续"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提示：需要同时激活两个权限才能正常工作"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:gravity="center"/>
+
+</LinearLayout>

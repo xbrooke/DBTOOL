@@ -3,6 +3,7 @@ package com.dtool.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 
 import com.dtool.service.VehicleCoreService;
@@ -29,9 +30,15 @@ public class BootReceiver extends BroadcastReceiver {
 
         // 启动核心服务
         if (isRelevantAction(action)) {
-            Intent serviceIntent = new Intent(context, VehicleCoreService.class);
             try {
-                context.startService(serviceIntent);
+                Intent serviceIntent = new Intent(context, VehicleCoreService.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    // Android 8.0+使用startForegroundService
+                    context.startForegroundService(serviceIntent);
+                } else {
+                    // 旧版本使用startService
+                    context.startService(serviceIntent);
+                }
                 Log.d(TAG, "已启动VehicleCoreService");
             } catch (Exception e) {
                 Log.e(TAG, "启动服务失败", e);
