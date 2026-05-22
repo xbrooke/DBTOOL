@@ -58,13 +58,23 @@ public class MediaNotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
+        if (sbn == null) {
+            Log.w(TAG, "收到空的通知");
+            return;
+        }
+
         String packageName = sbn.getPackageName();
         Notification notification = sbn.getNotification();
 
+        Log.d(TAG, "收到通知: " + packageName);
+
         // 检查是否是媒体通知
         if (!isMediaNotification(packageName, notification)) {
+            Log.d(TAG, "不是媒体通知: " + packageName);
             return;
         }
+
+        Log.d(TAG, "检测到媒体通知: " + packageName);
 
         // 解析媒体信息
         MediaInfo mediaInfo = parseMediaNotification(packageName, notification);
@@ -74,9 +84,12 @@ public class MediaNotificationListener extends NotificationListenerService {
                 currentMedia = mediaInfo;
             }
             Log.d(TAG, "媒体通知已更新: " + mediaInfo.title + " - " + mediaInfo.artist);
+            Log.d(TAG, "完整信息: " + mediaInfo.toString());
 
             // 广播更新
             broadcastMediaUpdate(mediaInfo);
+        } else {
+            Log.w(TAG, "无法解析媒体信息: " + packageName);
         }
     }
 
@@ -103,27 +116,52 @@ public class MediaNotificationListener extends NotificationListenerService {
         Log.d(TAG, "MediaNotificationListener已销毁");
     }
 
+    @Override
+    public void onListenerConnected() {
+        super.onListenerConnected();
+        Log.d(TAG, "=== MediaNotificationListener 已连接 ===");
+        Log.d(TAG, "通知监听服务已启用，开始监听媒体通知");
+    }
+
+    @Override
+    public void onListenerDisconnected() {
+        super.onListenerDisconnected();
+        Log.w(TAG, "=== MediaNotificationListener 已断开连接 ===");
+        Log.w(TAG, "通知监听服务已禁用，停止监听媒体通知");
+    }
+
     /**
      * 检查是否是媒体通知
      */
     private boolean isMediaNotification(String packageName, Notification notification) {
-        if (notification == null) return false;
+        if (notification == null) {
+            Log.d(TAG, "通知为空: " + packageName);
+            return false;
+        }
 
         // 检查是否是媒体应用
         if (!isMediaPackage(packageName)) {
+            Log.d(TAG, "不是媒体应用: " + packageName);
             return false;
         }
 
         // 检查通知内容
         if (notification.extras == null) {
+            Log.w(TAG, "通知 extras 为空: " + packageName);
             return false;
         }
 
         CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
         CharSequence text = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
 
+        Log.d(TAG, "通知内容 - 标题: " + title + ", 文本: " + text);
+
         // 需要有标题才认为是媒体通知
-        return title != null && title.length() > 0;
+        boolean isMedia = title != null && title.length() > 0;
+        if (!isMedia) {
+            Log.w(TAG, "通知没有标题: " + packageName);
+        }
+        return isMedia;
     }
 
     /**
@@ -143,6 +181,7 @@ public class MediaNotificationListener extends NotificationListenerService {
      */
     private MediaInfo parseMediaNotification(String packageName, Notification notification) {
         if (notification == null || notification.extras == null) {
+            Log.w(TAG, "无法解析: 通知或 extras 为空");
             return null;
         }
 
@@ -153,10 +192,14 @@ public class MediaNotificationListener extends NotificationListenerService {
         // 获取通知内容
         CharSequence titleSeq = notification.extras.getCharSequence(Notification.EXTRA_TITLE, "");
         info.title = titleSeq != null ? titleSeq.toString() : "";
+        
         CharSequence artistSeq = notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT, "");
         info.artist = artistSeq != null ? artistSeq.toString() : "";
+        
         CharSequence albumSeq = notification.extras.getCharSequence(Notification.EXTRA_TEXT, "");
         info.album = albumSeq != null ? albumSeq.toString() : "";
+
+        Log.d(TAG, "解析通知 - 标题: " + info.title + ", 艺术家: " + info.artist + ", 专辑: " + info.album);
 
         // 获取播放状态
         info.isPlaying = isPlaying(notification);
@@ -164,17 +207,20 @@ public class MediaNotificationListener extends NotificationListenerService {
         // 获取大文本(有时包含完整信息)
         CharSequence bigText = notification.extras.getCharSequence(Notification.EXTRA_BIG_TEXT);
         if (bigText != null && info.artist.length() == 0) {
+            Log.d(TAG, "尝试从大文本解析: " + bigText);
             // 如果艺术家为空，尝试从大文本中解析
             String[] parts = bigText.toString().split(" - ");
             if (parts.length >= 2) {
                 info.artist = parts[0];
                 info.title = parts[1];
+                Log.d(TAG, "从大文本解析成功 - 标题: " + info.title + ", 艺术家: " + info.artist);
             }
         }
 
         // 获取媒体图片
         if (notification.largeIcon != null) {
             info.hasAlbumArt = true;
+            Log.d(TAG, "检测到专辑封面");
         }
 
         return info;

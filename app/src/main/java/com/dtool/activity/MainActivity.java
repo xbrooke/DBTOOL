@@ -1,5 +1,6 @@
 package com.dtool.activity;
 
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -87,20 +88,24 @@ public class MainActivity extends AppCompatActivity {
 
         // 检查NotificationListenerService
         boolean nlsEnabled = isNotificationListenerEnabled();
-        status.append("通知监听: ").append(nlsEnabled ? "已启用" : "未启用").append("\n");
+        status.append("通知监听: ").append(nlsEnabled ? "✓ 已启用" : "✗ 未启用").append("\n");
 
         // 检查AccessibilityService
         boolean asEnabled = isAccessibilityServiceEnabled();
-        status.append("辅助服务: ").append(asEnabled ? "已启用" : "未启用").append("\n");
+        status.append("辅助服务: ").append(asEnabled ? "✓ 已启用" : "✗ 未启用").append("\n");
+
+        // 检查服务状态
+        boolean serviceRunning = isServiceRunning();
+        status.append("核心服务: ").append(serviceRunning ? "✓ 运行中" : "✗ 未运行").append("\n");
 
         tvStatus.setText(status.toString());
 
         // 显示当前播放
         MediaNotificationListener.MediaInfo media = MediaNotificationListener.getCurrentMedia();
         if (media != null) {
-            tvNowPlaying.setText(media.toString());
+            tvNowPlaying.setText("正在播放:\n" + media.toString());
         } else {
-            tvNowPlaying.setText("暂无播放");
+            tvNowPlaying.setText("暂无播放\n(请确保已启用通知监听)");
         }
     }
 
@@ -177,6 +182,25 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             Log.e(TAG, "检查无障碍服务失败", e);
+        }
+        return false;
+    }
+
+    /**
+     * 检查核心服务是否运行
+     */
+    private boolean isServiceRunning() {
+        try {
+            ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+            if (manager != null) {
+                for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+                    if (VehicleCoreService.class.getName().equals(service.service.getClassName())) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "检查服务状态失败", e);
         }
         return false;
     }
