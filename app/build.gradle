@@ -7,7 +7,9 @@ def getAppName() {
     def versionName = "1.0.0"
     def dateFormat = new java.text.SimpleDateFormat("yyyyMMdd")
     def buildDate = dateFormat.format(new Date())
-    return "DBTOOL-${versionName}-${buildDate}"
+    def appName = "DBTOOL-${versionName}-${buildDate}"
+    println("Generated app name: ${appName}")
+    return appName
 }
 
 android {
@@ -21,8 +23,12 @@ android {
         versionCode 1
         versionName "1.0.0"
         
-        // 动态设置应用名称
-        resValue "string", "app_name", getAppName()
+        // 动态设置应用名称 - 强制每次构建都重新生成
+        def dynamicAppName = getAppName()
+        resValue "string", "app_name", dynamicAppName
+        
+        // 也添加到buildConfigField以便在代码中使用
+        buildConfigField "String", "APP_NAME", "\"${dynamicAppName}\""
     }
 
     packagingOptions {
