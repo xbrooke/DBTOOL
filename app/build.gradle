@@ -2,16 +2,6 @@ plugins {
     id 'com.android.application'
 }
 
-// 生成动态应用名称：DBTOOL-版本-日期
-def getAppName() {
-    def versionName = "1.0.0"
-    def dateFormat = new java.text.SimpleDateFormat("yyyyMMdd")
-    def buildDate = dateFormat.format(new Date())
-    def appName = "DBTOOL-${versionName}-${buildDate}"
-    println("Generated app name: ${appName}")
-    return appName
-}
-
 android {
     namespace 'com.dtool'
     compileSdk 34
@@ -22,10 +12,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
-        
-        // 动态设置应用名称 - 强制每次构建都重新生成
-        def dynamicAppName = getAppName()
-        resValue "string", "app_name", dynamicAppName
     }
 
     packagingOptions {
@@ -50,13 +36,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-    }
-    
-    // 强制每次构建时重新生成资源
-    tasks.whenTaskAdded { task ->
-        if (task.name == 'generateDebugResources' || task.name == 'generateReleaseResources') {
-            task.outputs.upToDateWhen { false }
-        }
     }
 }
 
