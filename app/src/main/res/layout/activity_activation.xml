@@ -6,129 +6,206 @@
     android:orientation="vertical"
     android:background="@color/background_primary">
 
-    <!-- Header -->
+    <!-- Header with Gradient Background -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:background="@color/background_secondary">
+        android:padding="24dp"
+        android:background="@color/colorPrimary">
 
         <TextView
-            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="权限激活"
-            android:textAppearance="@style/TextAppearance.DBTOOL.Headline1"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
             android:layout_marginBottom="8dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DBTOOL需要以下权限才能正常工作"
-            android:textAppearance="@style/TextAppearance.DBTOOL.Body2"/>
+            android:text="DBTOOL 需要以下权限才能正常工作"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif"/>
     </LinearLayout>
 
     <!-- Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="16dp">
 
-            <!-- Permission 1 -->
-            <LinearLayout
+            <!-- Permission 1 Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/background_secondary"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📢 通知监听权限"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body1"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="用于监听音乐播放信息和控制命令"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body2"/>
-            </LinearLayout>
-
-            <!-- Permission 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/background_secondary"
-                android:padding="16dp"
-                android:layout_marginBottom="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="♿ 无障碍服务权限"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body1"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="用于模拟点击和控制音乐播放"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body2"/>
-            </LinearLayout>
-
-            <!-- Action Buttons -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_notification_listener"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="激活通知监听权限"
-                android:textSize="16sp"
-                app:cornerRadius="12dp"
                 android:layout_marginBottom="12dp"
-                style="@style/Widget.DBTOOL.Button.Filled"/>
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_accessibility"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="激活无障碍服务权限"
-                android:textSize="16sp"
-                app:cornerRadius="12dp"
-                android:layout_marginBottom="24dp"
-                style="@style/Widget.DBTOOL.Button.Filled"/>
-
-            <!-- Tips -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/background_secondary"
-                android:padding="16dp">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="💡 提示"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body1"
-                    android:layout_marginBottom="8dp"/>
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="📢 通知监听权限"
+                            android:textSize="18sp"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/status_indicator"
+                            android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="用于监听音乐应用的播放信息和控制命令"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary"
+                        android:lineSpacingExtra="4dp"
+                        android:fontFamily="sans-serif"
+                        android:layout_marginBottom="16dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_notification_listener"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="激活通知监听权限"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        app:cornerRadius="10dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        style="@style/Widget.DBTOOL.Button.Filled"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Permission 2 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="需要同时激活两个权限才能正常工作。激活后请返回应用继续。"
-                    android:textAppearance="@style/TextAppearance.DBTOOL.Body2"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="♿ 无障碍服务权限"
+                            android:textSize="18sp"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/status_indicator"
+                            android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="用于转发方向盘控制命令到音乐应用"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary"
+                        android:lineSpacingExtra="4dp"
+                        android:fontFamily="sans-serif"
+                        android:layout_marginBottom="16dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_accessibility"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="激活无障碍服务权限"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        app:cornerRadius="10dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        style="@style/Widget.DBTOOL.Button.Filled"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tips Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/background_secondary"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorAccent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="💡 重要提示"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="需要同时激活两个权限才能正常工作。激活后请返回应用继续。"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:lineSpacingExtra="4dp"
+                        android:fontFamily="sans-serif"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 
@@ -137,7 +214,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="16dp"
         android:background="@color/background_secondary">
 
         <com.google.android.material.button.MaterialButton
@@ -146,7 +223,10 @@
             android:layout_height="wrap_content"
             android:text="继续"
             android:textSize="16sp"
+            android:textColor="@color/white"
             app:cornerRadius="12dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
             style="@style/Widget.DBTOOL.Button.Filled"/>
     </LinearLayout>
 </LinearLayout>

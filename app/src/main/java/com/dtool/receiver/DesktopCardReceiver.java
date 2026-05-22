@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import com.dtool.mcu.McuControlHelper;
 import com.dtool.service.MediaNotificationListener;
 
 /**
@@ -16,6 +17,7 @@ import com.dtool.service.MediaNotificationListener;
  * 1. 接收来自车机的媒体控制广播
  * 2. 将控制命令转发给音乐App
  * 3. 支持亿连(ecarx)和极氪/几何(geely)协议
+ * 4. 支持 MCU 接口控制
  */
 public class DesktopCardReceiver extends BroadcastReceiver {
 
@@ -36,10 +38,22 @@ public class DesktopCardReceiver extends BroadcastReceiver {
     private static final String INTERNAL_NEXT = "com.dtool.action.NEXT";
     private static final String INTERNAL_PREV = "com.dtool.action.PREV";
 
+    private McuControlHelper mcuControl;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent == null || intent.getAction() == null) {
             return;
+        }
+
+        // 初始化 MCU 控制
+        if (mcuControl == null) {
+            mcuControl = new McuControlHelper(context);
+            if (mcuControl.isMcuAvailable()) {
+                Log.d(TAG, "MCU control initialized successfully");
+            } else {
+                Log.w(TAG, "MCU control not available, will use AudioManager");
+            }
         }
 
         String action = intent.getAction();
@@ -64,15 +78,15 @@ public class DesktopCardReceiver extends BroadcastReceiver {
                     break;
 
                 case INTERNAL_PLAY_PAUSE:
-                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+                    handlePlayPauseInternal(context);
                     break;
 
                 case INTERNAL_NEXT:
-                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+                    handleNextInternal(context);
                     break;
 
                 case INTERNAL_PREV:
-                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                    handlePrevInternal(context);
                     break;
 
                 default:
@@ -96,19 +110,29 @@ public class DesktopCardReceiver extends BroadcastReceiver {
         // 根据action执行相应操作
         switch (mediaAction) {
             case 0: // 播放
-                sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY);
+                if (!tryMcuCommand(() -> mcuControl.play())) {
+                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY);
+                }
                 break;
             case 1: // 暂停
-                sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PAUSE);
+                if (!tryMcuCommand(() -> mcuControl.pause())) {
+                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PAUSE);
+                }
                 break;
             case 2: // 播放/暂停
-                sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+                if (!tryMcuCommand(() -> mcuControl.togglePlayPause())) {
+                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+                }
                 break;
             case 3: // 下一曲
-                sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+                if (!tryMcuCommand(() -> mcuControl.next())) {
+                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+                }
                 break;
             case 4: // 上一曲
-                sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                if (!tryMcuCommand(() -> mcuControl.previous())) {
+                    sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                }
                 break;
             default:
                 Log.w(TAG, "未知亿连action: " + mediaAction);
@@ -121,7 +145,9 @@ public class DesktopCardReceiver extends BroadcastReceiver {
      */
     private void handlePlayPause(Context context) {
         Log.d(TAG, "处理播放/暂停");
-        sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+        if (!tryMcuCommand(() -> mcuControl.togglePlayPause())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+        }
     }
 
     /**
@@ -129,7 +155,9 @@ public class DesktopCardReceiver extends BroadcastReceiver {
      */
     private void handleNext(Context context) {
         Log.d(TAG, "处理下一曲");
-        sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+        if (!tryMcuCommand(() -> mcuControl.next())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+        }
     }
 
     /**
@@ -137,7 +165,61 @@ public class DesktopCardReceiver extends BroadcastReceiver {
      */
     private void handlePrev(Context context) {
         Log.d(TAG, "处理上一曲");
-        sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+        if (!tryMcuCommand(() -> mcuControl.previous())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+        }
+    }
+
+    /**
+     * 内部播放/暂停处理
+     */
+    private void handlePlayPauseInternal(Context context) {
+        Log.d(TAG, "内部播放/暂停");
+        if (!tryMcuCommand(() -> mcuControl.togglePlayPause())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+        }
+    }
+
+    /**
+     * 内部下一曲处理
+     */
+    private void handleNextInternal(Context context) {
+        Log.d(TAG, "内部下一曲");
+        if (!tryMcuCommand(() -> mcuControl.next())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_NEXT);
+        }
+    }
+
+    /**
+     * 内部上一曲处理
+     */
+    private void handlePrevInternal(Context context) {
+        Log.d(TAG, "内部上一曲");
+        if (!tryMcuCommand(() -> mcuControl.previous())) {
+            sendMediaKey(context, AudioManager.STREAM_MUSIC, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+        }
+    }
+
+    /**
+     * 尝试执行 MCU 命令
+     */
+    private boolean tryMcuCommand(McuCommand command) {
+        if (mcuControl != null && mcuControl.isMcuAvailable()) {
+            try {
+                return command.execute();
+            } catch (Exception e) {
+                Log.e(TAG, "MCU command execution failed", e);
+                return false;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * MCU 命令接口
+     */
+    private interface McuCommand {
+        boolean execute();
     }
 
     /**

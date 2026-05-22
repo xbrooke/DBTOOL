@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import com.dtool.DBToolApplication;
 import com.dtool.R;
 import com.dtool.activity.MainActivity;
+import com.dtool.mcu.McuControlHelper;
 
 /**
  * 车机核心服务
@@ -20,17 +21,23 @@ import com.dtool.activity.MainActivity;
  * 功能：
  * 1. 保持应用在后台运行
  * 2. 管理MediaNotificationListener
- * 3. 与车机系统保持通信
+ * 3. 初始化 MCU 控制接口
+ * 4. 与车机系统保持通信
  */
 public class VehicleCoreService extends Service {
 
     private static final String TAG = "VehicleCoreService";
     private static final int NOTIFICATION_ID = 1001;
 
+    private McuControlHelper mcuControl;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "VehicleCoreService已创建");
+
+        // 初始化 MCU 控制
+        initMcuControl();
 
         // 启动前台服务
         startForeground(NOTIFICATION_ID, createNotification());
@@ -42,6 +49,9 @@ public class VehicleCoreService extends Service {
 
         // 确保NotificationListenerService已启用
         checkNotificationListener();
+
+        // 检查 MCU 控制状态
+        checkMcuControl();
 
         return START_STICKY;
     }
@@ -108,6 +118,33 @@ public class VehicleCoreService extends Service {
             }
         } catch (Exception e) {
             Log.e(TAG, "检查NotificationListenerService失败", e);
+        }
+    }
+
+    /**
+     * 初始化 MCU 控制
+     */
+    private void initMcuControl() {
+        try {
+            mcuControl = new McuControlHelper(this);
+            if (mcuControl.isMcuAvailable()) {
+                Log.d(TAG, "✅ MCU 控制接口已初始化");
+            } else {
+                Log.w(TAG, "⚠️ MCU 控制接口不可用，将使用 AudioManager");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "初始化 MCU 控制失败", e);
+        }
+    }
+
+    /**
+     * 检查 MCU 控制状态
+     */
+    private void checkMcuControl() {
+        if (mcuControl != null && mcuControl.isMcuAvailable()) {
+            Log.d(TAG, "✅ MCU 控制接口正常");
+        } else {
+            Log.w(TAG, "⚠️ MCU 控制接口不可用");
         }
     }
 }

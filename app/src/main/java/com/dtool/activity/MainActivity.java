@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dtool.R;
+import com.dtool.mcu.McuControlHelper;
 import com.dtool.service.DBToolAccessibilityService;
 import com.dtool.service.MediaNotificationListener;
 import com.dtool.service.VehicleCoreService;
@@ -28,6 +29,7 @@ import com.dtool.service.VehicleCoreService;
  * 2. 激活NotificationListenerService
  * 3. 激活AccessibilityService
  * 4. 显示当前播放信息
+ * 5. 显示 MCU 控制状态
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +41,15 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAccessibility;
     private Button btnStartService;
 
+    private McuControlHelper mcuControl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 初始化 MCU 控制
+        mcuControl = new McuControlHelper(this);
 
         initViews();
         updateStatus();
@@ -97,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
         // 检查服务状态
         boolean serviceRunning = isServiceRunning();
         status.append("核心服务: ").append(serviceRunning ? "✓ 运行中" : "✗ 未运行").append("\n");
+
+        // 检查 MCU 控制状态
+        boolean mcuAvailable = mcuControl != null && mcuControl.isMcuAvailable();
+        status.append("MCU 控制: ").append(mcuAvailable ? "✓ 可用" : "⚠ 不可用").append("\n");
 
         tvStatus.setText(status.toString());
 

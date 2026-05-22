@@ -1,0 +1,519 @@
+cs11_high:/ $ logcat -d -t 500
+
+
+--------- beginning of main
+05-22 13:11:33.176   401  1133 V AudioPolicyService: AudioCommandThread() processing set volume stream 1,                             volume 0.630958, output 21
+05-22 13:11:33.176   401  1133 D AudioFlinger: AmplToStep: enter, amplification:0.630958
+05-22 13:11:33.176   401  1133 D AudioFlinger: AmplToStep: fDB is -3.999991 for amplification:0.630958
+05-22 13:11:33.176   401  1133 D AudioFlinger: AmplToStep: iDB is -4 for fDB:-3.999991
+05-22 13:11:33.176   401  1133 D AudioFlinger: AmplToStep: end, step is 35 found in DB_TO_STEP_TABLE for fDB:-4 (DB_TO_STEP_TABLE[35]=-4)
+05-22 13:11:33.176   401  1133 D AudioFlinger: setStreamVolume:PlaybackThread[0xe5f832c0] flags[0x400000] stream[1], its FG2 channel, software volume control, step=35
+05-22 13:11:33.176   399  1125 D audio_hw_primary: out_set_volume: enter: usecase(70: sys-notification-playback) left: 0.199527 right: 0.199527
+05-22 13:11:33.176   399  1125 D audio_hw_primary: AmplToStep: enter, amplification:0.199527
+05-22 13:11:33.176   399  1125 D audio_hw_primary: AmplToStep: fDB is -13.999967 for amplification:0.199527
+05-22 13:11:33.176   399  1125 D audio_hw_primary: AmplToStep: iDB is -14 for fDB:-13.999967
+05-22 13:11:33.176   399  1125 D audio_hw_primary: AmplToStep: end, step is 25 found in DB_TO_STEP_TABLE for fDB:-14 (DB_TO_STEP_TABLE[25]=-14)
+05-22 13:11:33.176   399  1125 D McuControlWrapper: Enter mcuControl_adjustVolumeFG2
+05-22 13:11:33.176   399  1125 D McuControl: Enter sendMsg oper_id:26, oper_type:1, value1:0x19, value2:0x 0
+05-22 13:11:33.176   399  1125 D McuControl: volumeAdjustFG2OpID    data.step:19
+05-22 13:11:33.176   399  1125 D McuControl: sendMsg   +++++ sServiceId:3
+05-22 13:11:33.176   399  1125 D audio_hw_primary: out_set_volume: end: usecase(70: sys-notification-playback) mcuControl_adjustVolumeFG2(channel=0x02(Beep), step=25), ret=0
+05-22 13:11:33.177   401  1133 V AudioPolicyService: AudioCommandThread() going to sleep
+05-22 13:11:33.177   401  1134 D APM_AudioPolicyManager: AudioPolicyManager::startOutput--> after startSource, status: 0
+05-22 13:11:33.177   401  1134 D AudioPolicyService: AudioPolicyService::AudioCommandThread::threadLoop-->START_OUTPUT-->after doStartOutput, command->mStatus: 0
+05-22 13:11:33.177   401  1134 V AudioPolicyService: AudioCommandThread() going to sleep
+05-22 13:11:33.177   401  1464 D AudioFlinger: AudioFlinger::PlaybackThread::addTrack_l-->AudioSystem::startOutput, status: 0
+05-22 13:11:33.177   401  1464 D AudioFlinger: AudioFlinger::PlaybackThread::addTrack_l-->AudioSystem::startOutput, track->mState: 6
+05-22 13:11:33.177   401  1464 D AudioFlinger: addTrack_l adding track on session 129, track->streamType=1
+05-22 13:11:33.177   401  1464 D AudioFlinger: AudioFlinger::PlaybackThread::Track::start-->addTrack_l status: 0
+05-22 13:11:33.177  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.177   399  4962 D audio_hw_primary: start_output_stream: enter: stream(0xf282d800)usecase(70: sys-notification-playback) devices(0x1000000)
+05-22 13:11:33.177   399  4962 D audio_hw_primary: [gaga]start_output_stream: out->devices=0x01000000
+05-22 13:11:33.177   399  4962 D audio_hw_primary: [gaga]start_output_stream: out->devices=0x01000000, out->flags=0x00400000 ---> out->pcm_device_id = 9
+05-22 13:11:33.177   399  9495 D McuControlWrapper: ConnectionThread  Connection times = 0
+05-22 13:11:33.178  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.178   709   709 E ANDR-PERF-TARGET: Error: Invalid logical cluster id 0
+05-22 13:11:33.178   709   709 E ANDR-PERF-TARGET: Error: Invalid logical cluster id 0
+05-22 13:11:33.178   709  1081 E ANDR-PERF-TARGET: Eror: Target not initialized
+05-22 13:11:33.178   709  1081 E ANDR-PERF-OPTSHANDLER: Invalid core no. 0
+05-22 13:11:33.178   709  1081 E ANDR-PERF-OPTSHANDLER: pmQoS_cpu_dma_latency:Request on invalid core or cluster
+05-22 13:11:33.178   709  1081 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [1, 0]
+05-22 13:11:33.178   709  1081 E ANDR-PERF-TARGET: Eror: Target not initialized
+05-22 13:11:33.178   709  1081 E ANDR-PERF-OPTSHANDLER: Invalid core no. 0
+05-22 13:11:33.178   709  1081 E ANDR-PERF-OPTSHANDLER: Request on invalid core or cluster
+05-22 13:11:33.178   709  1081 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [3, 0]
+05-22 13:11:33.178   399  4962 D audio_hw_primary: select_devices for use case (sys-notification-playback)
+05-22 13:11:33.178  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.178   399  4962 E voice_extn: voice_extn_compress_voip_is_active: COMPRESS_VOIP feature is not enabled
+05-22 13:11:33.178   399  4962 I msm8974_platform: platform_check_and_set_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 70 device (bus-speaker)
+05-22 13:11:33.178   399  4962 D msm8974_platform: platform_split_snd_device: snd_device(84) num devices(1) new_snd_devices(0)
+05-22 13:11:33.178   399  4962 I msm8974_platform: platform_check_and_set_codec_backend_cfg: new_snd_devices[0] is 84
+05-22 13:11:33.178   399  4962 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 70 device (bus-speaker)
+05-22 13:11:33.178   399  4962 D msm8974_platform: platform_check_codec_backend_cfg:napb: (0) - (media-playback)id (69) sr 48000 bw (16) ch (2) device bus-speaker
+05-22 13:11:33.178  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.178   399  4962 D msm8974_platform: platform_check_codec_backend_cfg:becf: afe: playback on codec device not supporting native playback set default Sample Rate(48k)
+05-22 13:11:33.178   399  4962 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: Codec selected backend: 0 updated bit width: 16 and sample rate: 48000
+05-22 13:11:33.178   399  4962 D audio_hw_primary: check_usecases_codec_backend:becf: force routing 0
+05-22 13:11:33.178   399  4962 E msm8974_platform: platform_check_backends_match: Invalid snd_device = 
+05-22 13:11:33.178   399  4962 D audio_hw_primary: check_usecases_codec_backend:becf: (77) check_usecases curr device: bus-speaker, usecase device: backends match 0
+05-22 13:11:33.178   399  4962 D audio_hw_primary: check_usecases_codec_backend:becf: (77) check_usecases curr device: bus-speaker, usecase device:bus-speaker backends match 1
+05-22 13:11:33.178   399  4962 E msm8974_platform: platform_check_backends_match: Invalid snd_device = 
+05-22 13:11:33.178   399  4962 D audio_hw_primary: check_usecases_codec_backend:becf: (77) check_usecases curr device: bus-speaker, usecase device: backends match 0
+05-22 13:11:33.178   399  4962 D audio_hw_primary: check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+05-22 13:11:33.178   399  4962 D hardware_info: hw_info_append_hw_type : device_name = bus-speaker
+05-22 13:11:33.178   399  4962 D msm8974_platform: platform_split_snd_device: snd_device(84) num devices(0) new_snd_devices(0)
+05-22 13:11:33.178   399  4962 D audio_hw_primary: enable_snd_device: snd_device(84: bus-speaker)
+05-22 13:11:33.178   399  4962 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x54 of type 0 for Event 1, with Raise=0
+05-22 13:11:33.178   399  4962 E msm8974_platform: platform_get_snd_device_backend_index: BE DAI Name Table is not present
+05-22 13:11:33.178   399  4962 D audio_route: Apply path: bus-speaker
+05-22 13:11:33.178   399  4962 D audio_hw_utils: set_app_type_cfg: sample_rate=48000, bit_width=16
+05-22 13:11:33.178   399  4962 D audio_hw_utils: set_app_type_cfg app_type_cfg->app_type 69937, app_type_cfg->sample_rate 48000, app_type_cfg->bit_width 16
+05-22 13:11:33.178   399  4962 D audio_hw_primary: select_devices: usecase->stream.out->usecase=70--sys-notification-playback, usecase->out_snd_device=84, usecase->stream.out->devices=0x01000000
+05-22 13:11:33.178   399  4962 D audio_hw_primary: enable_audio_route: enter: [gaga]usecase(70: sys-notification-playback)
+05-22 13:11:33.178   399  4962 E soundtrigger: audio_extn_sound_trigger_update_stream_status: invalid input device 0x0, for event 3
+05-22 13:11:33.178   399  4962 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 70 of type 0 for Event 3, with Raise=0
+05-22 13:11:33.178   399  4962 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->out_snd_device bus-speaker
+05-22 13:11:33.178   399  4962 D msm8974_platform: platform_split_snd_device: snd_device(84) num devices(0) new_snd_devices(0)
+05-22 13:11:33.178   399  4962 E msm8974_platform: platform_get_snd_device_backend_index: BE DAI Name Table is not present
+05-22 13:11:33.178   399  4962 E audio_hw_utils: send_app_type_cfg_for_device: Couldn't get the backend index for snd device bus-speaker ret=-14
+05-22 13:11:33.178   399  4962 D audio_hw_utils: audio_extn_btsco_get_sample_rate:Not a BT SCO device, need not update sampling rate
+05-22 13:11:33.178   399  4962 I audio_hw_utils: send_app_type_cfg_for_device PLAYBACK app_type 69937, acdb_dev_id 78, sample_rate 48000, snd_device_be_idx -14
+05-22 13:11:33.179   399  4962 D msm8974_platform: platform_split_snd_device: snd_device(84) num devices(1) new_snd_devices(0)
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 78, path = 0, app id = 0x11131, sample rate = 48000, afe_sample_rate = 48000
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_asm_topology
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_adm_topology
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_audtable
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[78] app_type[69937]
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_PERSISTENT_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+05-22 13:11:33.179   399  4962 D         : ACDBFILE_MGR: Property for the pid 000133B7 not found
+05-22 13:11:33.179   399  4962 D         : [Data Manager] -> Failed to fetch the property info for pid 000133B7 
+05-22 13:11:33.179   399  4962 D         : [Data Manager]-> No data found
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: ACDB_CMD_GET_PERSISTENT_AUDPROC_INSTANCE_COMMON_TABLE_SIZE returned -18
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_audproc_persist_table -18 
+--------- beginning of system
+05-22 13:11:33.179  1303  1751 V WindowManager: Remove Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell} client=1c6f2ea, surfaceController=Surface(name=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell)/@0xc814884 Callers=com.android.server.wm.WindowState.removeIfPossible:1982 com.android.server.wm.WindowManagerService.removeWindow:1626 com.android.server.wm.Session.remove:226 android.view.IWindowSession$Stub.onTransact:261 com.android.server.wm.Session.onTransact:164 
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: Invalid Audproc persist size = -18
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_audvoltable
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+05-22 13:11:33.179   399  4962 D         : Failed to fetch the lookup information of the device 0000004E 
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE Returned = -19
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 0
+05-22 13:11:33.179   399  4962 D         : Failed to fetch the lookup information of the device 0000004E 
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE_SIZE
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_audstrmtable
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 20
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_afe_topology
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 78, Topology Id 112fc
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_afe_cal
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE
+05-22 13:11:33.179   399  4962 D         : Failed to fetch the lookup information of the device 0000004E 
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE Returned = -19
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE
+05-22 13:11:33.179   399  4962 D         : Failed to fetch the lookup information of the device 0000004E 
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: Error: ACDB AFE returned = -19
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL cal_type[16] acdb_id[78]
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> send_hw_delay : acdb_id = 78 path = 0
+05-22 13:11:33.179   399  4962 D ACDB-LOADER: ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+05-22 13:11:33.179   695   900 E GnssHAL_GnssIpcp: socket_says_data_received: ipcp 176 6 824 -1341782521 3 6 0 0
+05-22 13:11:33.179   399  4962 D audio_hw_primary: enable_audio_route: [gaga]Todo apply mixer and update path(70: sys-notification-playback), snd_device=84
+05-22 13:11:33.179   399  4962 D audio_hw_primary: enable_audio_route: [gaga]Done apply mixer and update path(70: sys-notification-playback), snd_device=84
+05-22 13:11:33.179   399  4962 D audio_route: Apply path: sys-notification-playback
+05-22 13:11:33.180   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 21 $GPGSV,4,1,15,05,37,246,38,06,42,066,41,11,60,354,50,12,28,258,43,1*6A
+
+05-22 13:11:33.180   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 21 $GPGSV,4,2,15,13,,,43,19,37,142,30,21,68,261,48,25,14,295,34,1*54
+
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{e4dbf38 u0 StatusBar}, flags=-2122055608, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{4c77ef7 u0 csd-Dock}, flags=17039384, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{f128684 u0 CarNavigationBar}, flags=25428008, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{2bd1d35 u0 cn.navitool}, flags=16777248, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{63e916b u0 cn.navitool}, flags=16777224, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{cb6f4d8 u0 AssistPreviewPanel}, flags=16777496, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{ce12624 u0 DockedStackDivider}, flags=562298920, canReceive=false
+05-22 13:11:33.180  1303  1751 V WindowManager: Looking for focus: Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell EXITING}, flags=25167360, canReceive=false
+05-22 13:11:33.181  1303  1751 V WindowManager: Looking for focus: Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}, flags=25233280, canReceive=true
+05-22 13:11:33.181  1303  1751 V WindowManager: findFocusedWindow: Found new focus @ Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.181  1303  1751 V WindowManager: updateFocusWindowLocked mCurrentFocus=Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell EXITING} newFocus=Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell} displayId: 0
+05-22 13:11:33.181  1303  1751 V WindowManager: Changing focus from Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell EXITING} to Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell} Callers=com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2117 com.android.server.wm.WindowState.removeIfPossible:2092 com.android.server.wm.WindowState.removeIfPossible:1982 com.android.server.wm.WindowManagerService.removeWindow:1626 
+05-22 13:11:33.181   399  4962 D msm8974_platform: platform_split_snd_device: snd_device(84) num devices(0) new_snd_devices(0)
+05-22 13:11:33.181   399  4962 I msm8974_platform: platform_get_custom_mtmx_params: no matching param with id 0 ip_ch 2 op_ch 2 uc_id 70 snd_dev 84
+05-22 13:11:33.181   399  4962 D audio_hw_primary: select_devices: done
+05-22 13:11:33.181   399  4962 E audio_hw_primary: [gaga]start_output_stream: out->devices=0x01000000
+05-22 13:11:33.181  1303  1751 I WindowManager: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell--type:1
+05-22 13:11:33.181  1303  1751 I WindowManager: updateSystemUiVisibilityLw: displayId:0--mSystemUiVisibility:3334--owningPackage:com.yunpan.appmanage
+05-22 13:11:33.181  1303  1751 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.181   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 21 $GPGSV,4,3,15,09,27,052,,17,10,142,,29,00,317,,40,13,251,33,1*62
+
+05-22 13:11:33.181  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.181  1303  1751 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.181  1303  1751 D WindowManager: Input focus has changed to Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.181  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.181  1533  4715 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.181  1303  1303 D StatusBarManagerService: run() called size = [2]
+05-22 13:11:33.182  1303  1751 I WindowManager: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell--type:1
+05-22 13:11:33.182  1303  1751 I WindowManager: updateSystemUiVisibilityLw: displayId:0--mSystemUiVisibility:3334--owningPackage:com.yunpan.appmanage
+05-22 13:11:33.182  1303  1751 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.182  2548  3474 D debug_M1_dock20251121DockController: StatusBarManager onWindowChange
+05-22 13:11:33.182  1758  7571 D StatusBarView: StatusBarManager onWindowChange
+05-22 13:11:33.182  2548  3474 D debug_M1_dock20251121parseSystemUiVisibility: 隐藏dock
+05-22 13:11:33.182  1533  4715 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.182  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():dockConfig=DockConfig{displayId=0, candidateDisplayId=0, focusedApp='com.yunpan.appmanage', clsName='com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell', disableFlags=0, type=1, behavior=0, systemUiVisibility=0xd06, subtreeSystemUiVisibility=0, isNavbarColorManagedByIme=false, appearance=0, opaqueAppearance=0, isFullscreen=false, dockStatus=DOCK_STATE_HIDE, extra='null'}
+05-22 13:11:33.182  1758  1758 I StatusBarView: onWindowChange--bundle:Bundle[mParcelledData.dataSize=336]
+05-22 13:11:33.182  1758  1758 I StatusBarView: displayId:0
+05-22 13:11:33.182  1758  1758 I StatusBarView: systemUiVisibility:110100000110
+05-22 13:11:33.182  1758  1758 I StatusBarView: packageName:com.yunpan.appmanage
+05-22 13:11:33.182  1758  1758 I StatusBarView: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.182  1758  1758 I StatusBarView: type:1
+05-22 13:11:33.182  1758  1758 I StatusBarView: ttt=isLight:false--isDark:false
+05-22 13:11:33.182  1758  1758 E SystemUILog: ttt==setIconMode==0
+05-22 13:11:33.182  1758  1758 I StatusBarView: closeAllWindow
+05-22 13:11:33.182  1758  1758 D UserPopupWindowHelper: closeUserPopupWindow null
+05-22 13:11:33.182  1758  1758 D UserPopupWindowHelper: closeUserModePopupWindow null
+05-22 13:11:33.182  1758  1758 D WifiPopupWindowHelper: closeWifiPopupWindow null
+05-22 13:11:33.182  1758  1758 D BtPopupWindowHelper: closeBtPopupWindow null
+05-22 13:11:33.182  1758  1758 D ApPopupWindowHelper: closeApPopupWindow null
+05-22 13:11:33.182  1758  1758 D CloseWpcWindowHelper: closePopupWindow null
+05-22 13:11:33.182  1758  1758 D VolumeSettingPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.182  1758  1758 D MemoryCleanPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.182  1758  1758 I StatusBarView: ttt=setIconMode--mode:0
+05-22 13:11:33.182  1758  1758 I WifiImageView: mode:0
+05-22 13:11:33.182  1758  1758 I WifiImageView: setImageView.wifiModel:WifiModel{wifiEnabled=false, wifiConnected=false, wifiLevel=0}WIFI_SIGNAL_STRENGTH:3 iconMode : 0
+05-22 13:11:33.182  1758  2272 D CommandQueue: topAppWindowChanged() called with: menuVisible = [false]
+05-22 13:11:33.183  1758  1758 I BluetoothImageView: iconMode:0
+05-22 13:11:33.183  1758  1758 I BluetoothImageView: setImageView--bluetoothModel : BluetoothModel{isOpen=10, isConnected=false} iconMode : 0
+05-22 13:11:33.183  1758  1758 I MobileNetworkImageView: iconMode:0
+05-22 13:11:33.183  1758  1758 D MobileNetworkImageView: setImageView apMobileModel: ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.183  1758  1758 D TelephonyIcons: getMobileIcon mNetworkType: 13, level: 4
+05-22 13:11:33.183  1758  1758 I AccessPointImageView: iconMode:0
+05-22 13:11:33.183  1758  1758 I AccessPointImageView:  setImageView apMobileModel : ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.183  1758  1758 I DvrImageView: iconMode:0
+05-22 13:11:33.183  1758  1758 D DVRViewModel: getDvrCurrentModel, DvrMode=3
+05-22 13:11:33.183  1758  1758 I DvrImageView: dvr is not supported
+05-22 13:11:33.183  1758  1758 I LocationImageView: setIconMode Location iconMode:0
+05-22 13:11:33.183  1758  1758 I LocationImageView: setImageView Location iconMode:0
+05-22 13:11:33.183  1758  1758 I LocationImageView: setImageView isLocationEnabled:true
+05-22 13:11:33.183  1758  1758 I LocationImageView: setLocationState iconMode:0
+05-22 13:11:33.183  1758  1758 I MacImageView: iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.MacViewModel@e903786
+05-22 13:11:33.183  1758  1758 I MacImageView: setImageView isMacEnabled:true
+05-22 13:11:33.183  1758  1758 I MacImageView: setComplianceMacState iconMode:0
+05-22 13:11:33.183  1758  1758 I CameraImageView: setIconMode iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.CameraViewModel@bf6a847 topPkg com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.183  1758  1758 I CameraImageView: setImageView iconMode:0
+05-22 13:11:33.183  1758  1758 I CameraImageView: setImageView isCameraEnabled:false
+05-22 13:11:33.183  1758  1758 I Clock   : iconMode:0
+05-22 13:11:33.183  1758  1758 E SystemUILog: ttt==mMemoryCleanImageView设置mode ==com.geely.systemui.plugin.statusbar.memory.MemoryCleanImageView{d357874 G.E...... ......I. 0,0-0,0 #7f0900fd app:id/iv_clean}
+05-22 13:11:33.183  1758  1758 D MemoryCleanImageView: ttt==setIconMode=====0
+05-22 13:11:33.183  1758  1758 I WpcImageView: isLight:0
+05-22 13:11:33.183   399  4962 D msm8974_platform: platform_set_channel_map mixer_ctl_name:Playback Channel Map9
+05-22 13:11:33.183   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 17 $GPGSV,4,4,15,43,08,118,35,45,,,35,47,41,219,41,1*6F
+
+05-22 13:11:33.183   399  4962 D msm8974_platform: platform_set_channel_map: set mapping(1 2 0 0 0 0 0 0) for channel:2
+05-22 13:11:33.183   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 22 $GBGSV,4,1,13,33,26,040,35,32,37,201,45,30,22,310,49,28,47,104,39,0,4*63
+
+05-22 13:11:33.183  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.183  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.183  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.183  1758  1758 I WpcImageView: setImageView--wpcModel:com.geely.systemui.plugin.model.statusbar.WpcModel@949a7c8
+05-22 13:11:33.183  1758  1758 I WpcImageView: wpcMode:0--wpcState:0
+05-22 13:11:33.183   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 22 $GBGSV,4,2,13,27,72,004,47,09,49,236,43,08,72,137,44,06,72,258,50,0,4*69
+
+05-22 13:11:33.183  1303  1384 I WindowManager: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell--type:1
+05-22 13:11:33.183   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 22 $GBGSV,4,3,13,03,49,189,44,01,43,140,41,02,33,232,,04,29,118,,0,4*64
+
+05-22 13:11:33.183  1303  1384 I WindowManager: updateSystemUiVisibilityLw: displayId:0--mSystemUiVisibility:3334--owningPackage:com.yunpan.appmanage
+05-22 13:11:33.182  1303  1751 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.183  1303  1384 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.184  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.184  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.184  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.184   695   895 D GnssHAL_GnssIpcp: frameKey = GSV, parts.size() = 10 $GBGSV,4,4,13,13,19,115,,0,4*52
+
+05-22 13:11:33.184   695   895 D GnssHAL_GnssIpcp: frameKey = GNS, parts.size() = 12 $GNGNS,051133.00,3328.929425,N,11644.278625,E,AAAAA,32,0.5,,,V*53
+
+05-22 13:11:33.184  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.184  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.184   695   895 D GnssHAL_GnssIpcp: frameKey = VTG, parts.size() = 10 $GPVTG,,T,4.6,M,0.0,N,0.000,K,A*0F
+
+05-22 13:11:33.184  1758  1758 D AbsCarFunction::Wpc: getFunctionValue function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] value 0
+05-22 13:11:33.184  1758  1758 D VehicleHelper:Wpc: getFunctionValue: function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] result:IAudio.SOFT_BUTTON_SOUND_TYPE_OFF [0x0] 0
+05-22 13:11:33.184  1758  1758 I WpcViewModel: getWpcState state = 0
+05-22 13:11:33.184  1758  1758 I UsbImageView: iconMode:0
+05-22 13:11:33.184   695   895 D GnssHAL_GnssIpcp: frameKey = RMC, parts.size() = 14 $GPRMC,051133.00,A,3328.929425,N,11644.278625,E,0.0,,220526,4.6,W,A,V*74
+
+05-22 13:11:33.184  1758  1758 I UsbImageView: initObserver--onChanged：UsbModel{usbVisible=false}
+05-22 13:11:33.184  1758  1758 I ShowModeImageView: mode:0
+05-22 13:11:33.184  1758  1758 I ShowModeImageView: setImageView : 0 false
+05-22 13:11:33.184  1758  1758 I AqsImageView: iconMode:0
+05-22 13:11:33.184  1758  1758 I AqsImageView: onChanged--aqsState:false
+05-22 13:11:33.184  1758  1758 I AqsImageView: setAqsState stateOff: false iconMode : 0
+05-22 13:11:33.184   695   895 D GnssHAL_GnssIpcp: frameKey = GSA, parts.size() = 19 $GNGSA,A,3,05,06,11,12,19,21,25,,,,,,1.0,0.5,0.9,1*30
+
+05-22 13:11:33.184  1758  1758 D AbsSensorFunction: isSensorSupported: sensor: 0x202300 , Status: notactive
+05-22 13:11:33.184  1758  1758 I CarUtils: isSupportAQS status ==1
+05-22 13:11:33.184  1758  1758 I PM25ImageView: iconMode:0
+05-22 13:11:33.184  1758  1758 D VoiceImageView: setIconMode==0
+05-22 13:11:33.184  1758  1758 I StatusBarView: setLeftTempStateMediaVisibility  packageName :com.yunpan.appmanage
+05-22 13:11:33.184  1758  1758 I LeftTempStateViewModel: setMediaVisibility : appSourcePackagecom.flyme.auto.musicpackageNamecom.yunpan.appmanage
+05-22 13:11:33.184  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.185   695   895 D GnssHAL_GnssIpcp: frameKey = GSA, parts.size() = 19 $GNGSA,A,3,33,32,30,28,27,09,08,06,03,01,,,1.0,0.5,0.9,4*31
+
+05-22 13:11:33.184  1303  1384 D StatusBarManagerService: onWindowChange() called with: args = [Bundle[{systemUiVisibility=3334, type=1, title=com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell, displayId=0, packageName=com.yunpan.appmanage}]]
+05-22 13:11:33.185  1303  1327 I WindowManager: Focus moving from Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell EXITING} to Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell} displayId=0
+05-22 13:11:33.185  1533  4715 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.186  1303  2366 I GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8215d33)
+05-22 13:11:33.186   695   895 D GnssHAL_GnssIpcp: sGnssSvStatus.num_svs = 28 used = 17
+05-22 13:11:33.186  1303  1327 I WindowManager: Gaining focus: Window{f64e9c9 u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.186  1303  1327 I WindowManager: Losing focus: Window{ab4e9db u0 com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell EXITING}
+05-22 13:11:33.186  1533  4715 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.187  1303  1317 I GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8215d33)
+05-22 13:11:33.188  2548  3474 D debug_M1_dock20251121DockController: onWindowChange():componentName=ComponentInfo{com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.188  1758  1758 D CommandQueue: handleMessage() called with: msg = [{ when=-6ms what=458752 target=com.android.systemui.statusbar.CommandQueue$H }]
+05-22 13:11:33.188  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():isActivity=true
+05-22 13:11:33.188  2548  3474 I debug_M1_dock20251121DockController: false，isNoControlDockAppList() called with: pkgName = [com.yunpan.appmanage]
+05-22 13:11:33.188  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage same App, return
+05-22 13:11:33.189  7553  7553 V InputMethodManager: focusIn: com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn},focus=true,windowFocus=true,autofillUiShowing=false,window=android.view.ViewRootImpl$W@c625ff0,temporaryDetach=false
+05-22 13:11:33.190  7553  7553 V InputMethodManager: onWindowFocus: com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn} softInputMode=STATE_UNSPECIFIED|ADJUST_RESIZE first=false flags=#1810780
+05-22 13:11:33.190  7553  7553 V InputMethodManager: focusIn: com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn},focus=true,windowFocus=true,autofillUiShowing=false,window=android.view.ViewRootImpl$W@c625ff0,temporaryDetach=false
+05-22 13:11:33.190  7553  7553 V InputMethodManager: checkFocus: view=null next=com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn} forceNewFocus=false package=<none>
+05-22 13:11:33.190  7553  7553 V InputMethodManager: Starting input: view=com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn},focus=true,windowFocus=true,autofillUiShowing=false,window=android.view.ViewRootImpl$W@c625ff0,temporaryDetach=false reason=WINDOW_FOCUS_GAIN
+05-22 13:11:33.190  7553  7553 V InputMethodManager: Starting input: tba=android.view.inputmethod.EditorInfo@4b746f3 ic=null
+05-22 13:11:33.190  7553  7553 V InputMethodManager: START INPUT: view=com.owen.tvrecyclerview.widget.TvRecyclerView{6258b1c VFE...... .F.....D 0,80-1920,164 #7f09045b app:id/v_list_btn},focus=true,windowFocus=true,autofillUiShowing=false,window=android.view.ViewRootImpl$W@c625ff0,temporaryDetach=false ic=null tba=android.view.inputmethod.EditorInfo@4b746f3 controlFlags=#101
+05-22 13:11:33.190  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.190  1303  7444 D InputMethodManagerService: --- calledFromForegroundUserOrSystemProcess ? calling uid = 10054 system uid = 1000 calling userId = 0, foreground user id = 0, calling pid = 7553com.android.server.InputMethodManagerService.startInputOrWindowGainedFocus(InputMethodManagerService.java:3068)
+05-22 13:11:33.190  1533  4715 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.190  1303  7444 V InputMethodManagerService: windowGainedFocus: reason=WINDOW_FOCUS_GAIN client=android.os.BinderProxy@ee4642d inputContext=null missingMethods= attribute=android.view.inputmethod.EditorInfo@90c68f0 controlFlags=#101 softInputMode=STATE_UNSPECIFIED|ADJUST_RESIZE windowFlags=#1810780 unverifiedTargetSdkVersion=28
+05-22 13:11:33.190  1303  7444 V InputMethodManagerService: windowGainedFocus windowDisplayId: 0 mCurTokenDisplayId:0
+05-22 13:11:33.190  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.191  1303  7444 V InputMethodManagerService: Unspecified window will hide input
+05-22 13:11:33.191  1303  1303 D StatusBarManagerService: run() called size = [2]
+05-22 13:11:33.191  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.191   709   709 E ANDR-PERF-TARGET: Error: Invalid logical cluster id 1
+05-22 13:11:33.191  2548  3474 D debug_M1_dock20251121DockController: StatusBarManager onWindowChange
+05-22 13:11:33.191  7553  7553 V InputMethodManager: Starting input: Bind result=InputBindResult{result=SUCCESS_WITH_IME_SESSION method=com.android.internal.view.IInputMethodSession$Stub$Proxy@c996fb0 id=com.sohu.inputmethod.sogou.oem/com.sohu.inputmethod.sogou.SogouIME sequence=88 userActionNotificationSequenceNumber=2}
+05-22 13:11:33.191  2548  3474 D debug_M1_dock20251121parseSystemUiVisibility: 隐藏dock
+05-22 13:11:33.191  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():dockConfig=DockConfig{displayId=0, candidateDisplayId=0, focusedApp='com.yunpan.appmanage', clsName='com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell', disableFlags=0, type=1, behavior=0, systemUiVisibility=0xd06, subtreeSystemUiVisibility=0, isNavbarColorManagedByIme=false, appearance=0, opaqueAppearance=0, isFullscreen=false, dockStatus=DOCK_STATE_HIDE, extra='null'}
+05-22 13:11:33.191  1303  2366 I GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_LOCATION, 1, Location[gps 33.482157,116.737977 hAcc=1 et=?!? vel=0.0 vAcc=??? sAcc=??? bAcc=???])
+05-22 13:11:33.192  1758  7571 D StatusBarView: StatusBarManager onWindowChange
+05-22 13:11:33.192   695   895 D GnssHAL_GnssIpcp: utc_year = 2026, utc_mon = 5, utc_day = 22, utc_diff = -28800, flags = 0, latitude = 33.482157, longitude = 116.737977, altitude = 0.000000, speed = 0.000000, bearing = 0.000000, accuracy = 0.500000, timestamp = 1779426693000
+05-22 13:11:33.192  1758  1758 I StatusBarView: onWindowChange--bundle:Bundle[mParcelledData.dataSize=336]
+05-22 13:11:33.192  1758  1758 I StatusBarView: displayId:0
+05-22 13:11:33.192  1758  1758 I StatusBarView: systemUiVisibility:110100000110
+05-22 13:11:33.192  1758  1758 I StatusBarView: packageName:com.yunpan.appmanage
+05-22 13:11:33.192  1758  1758 I StatusBarView: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.192  1758  1758 I StatusBarView: type:1
+05-22 13:11:33.192  1758  1758 I StatusBarView: ttt=isLight:false--isDark:false
+05-22 13:11:33.192  1758  1758 E SystemUILog: ttt==setIconMode==0
+05-22 13:11:33.192  1758  1758 I StatusBarView: closeAllWindow
+05-22 13:11:33.192  1758  1758 D UserPopupWindowHelper: closeUserPopupWindow null
+05-22 13:11:33.192  1758  1758 D UserPopupWindowHelper: closeUserModePopupWindow null
+05-22 13:11:33.192  1758  1758 D WifiPopupWindowHelper: closeWifiPopupWindow null
+05-22 13:11:33.192  1758  1758 D BtPopupWindowHelper: closeBtPopupWindow null
+05-22 13:11:33.192  1758  1758 D ApPopupWindowHelper: closeApPopupWindow null
+05-22 13:11:33.192  1758  1758 D CloseWpcWindowHelper: closePopupWindow null
+05-22 13:11:33.192  1758  1758 D VolumeSettingPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.192  1758  1758 D MemoryCleanPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.192  1758  1758 I StatusBarView: ttt=setIconMode--mode:0
+05-22 13:11:33.192  1758  1758 I WifiImageView: mode:0
+05-22 13:11:33.192  1758  1758 I WifiImageView: setImageView.wifiModel:WifiModel{wifiEnabled=false, wifiConnected=false, wifiLevel=0}WIFI_SIGNAL_STRENGTH:3 iconMode : 0
+05-22 13:11:33.192  1758  7571 D StatusBarView: StatusBarManager onWindowChange
+05-22 13:11:33.192  1758  1758 I BluetoothImageView: iconMode:0
+05-22 13:11:33.192  1758  1758 I BluetoothImageView: setImageView--bluetoothModel : BluetoothModel{isOpen=10, isConnected=false} iconMode : 0
+05-22 13:11:33.192  1758  1758 I MobileNetworkImageView: iconMode:0
+05-22 13:11:33.192  1758  1758 D MobileNetworkImageView: setImageView apMobileModel: ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.192  1758  1758 D TelephonyIcons: getMobileIcon mNetworkType: 13, level: 4
+05-22 13:11:33.192  1758  1758 I AccessPointImageView: iconMode:0
+05-22 13:11:33.192  1758  1758 I AccessPointImageView:  setImageView apMobileModel : ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.192  1758  1758 I DvrImageView: iconMode:0
+05-22 13:11:33.192  1758  1758 D DVRViewModel: getDvrCurrentModel, DvrMode=3
+05-22 13:11:33.192  1758  1758 I DvrImageView: dvr is not supported
+05-22 13:11:33.192  1758  1758 I LocationImageView: setIconMode Location iconMode:0
+05-22 13:11:33.192  1758  1758 I LocationImageView: setImageView Location iconMode:0
+05-22 13:11:33.192  1758  1758 I LocationImageView: setImageView isLocationEnabled:true
+05-22 13:11:33.192  1758  1758 I LocationImageView: setLocationState iconMode:0
+05-22 13:11:33.192  1758  1758 I MacImageView: iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.MacViewModel@e903786
+05-22 13:11:33.192  1758  1758 I MacImageView: setImageView isMacEnabled:true
+05-22 13:11:33.192  1758  1758 I MacImageView: setComplianceMacState iconMode:0
+05-22 13:11:33.193  1758  1758 I CameraImageView: setIconMode iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.CameraViewModel@bf6a847 topPkg com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.193  1758  1758 I CameraImageView: setImageView iconMode:0
+05-22 13:11:33.193  1758  1758 I CameraImageView: setImageView isCameraEnabled:false
+05-22 13:11:33.193  1758  1758 I Clock   : iconMode:0
+05-22 13:11:33.193  1758  1758 E SystemUILog: ttt==mMemoryCleanImageView设置mode ==com.geely.systemui.plugin.statusbar.memory.MemoryCleanImageView{d357874 G.E...... ......I. 0,0-0,0 #7f0900fd app:id/iv_clean}
+05-22 13:11:33.193  1758  1758 D MemoryCleanImageView: ttt==setIconMode=====0
+05-22 13:11:33.193  1758  1758 I WpcImageView: isLight:0
+05-22 13:11:33.193  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.193  1758  7571 D CommandQueue: topAppWindowChanged() called with: menuVisible = [false]
+05-22 13:11:33.193  1758  7571 D CommandQueue: topAppWindowChanged() called with: menuVisible = [false]
+05-22 13:11:33.193  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.194  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.194  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.194  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.194  1758  1758 I WpcImageView: setImageView--wpcModel:com.geely.systemui.plugin.model.statusbar.WpcModel@949a7c8
+05-22 13:11:33.194  1758  1758 I WpcImageView: wpcMode:0--wpcState:0
+05-22 13:11:33.194  2548  3474 D debug_M1_dock20251121DockController: onWindowChange():componentName=ComponentInfo{com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.195  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.195  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.195  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.195  1303  1317 I GnssLocationProvider: WakeLock released by handleMessage(REPORT_LOCATION, 1, Location[gps 33.482157,116.737977 hAcc=1 et=+5m55s195ms vel=0.0 vAcc=??? sAcc=??? bAcc=??? {Bundle[{satellites=17, maxCn0=50, meanCn0=42}]}])
+05-22 13:11:33.195  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.195  1758  1758 D AbsCarFunction::Wpc: getFunctionValue function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] value 0
+05-22 13:11:33.195  1758  1758 D VehicleHelper:Wpc: getFunctionValue: function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] result:IAudio.SOFT_BUTTON_SOUND_TYPE_OFF [0x0] 0
+05-22 13:11:33.195  1758  1758 I WpcViewModel: getWpcState state = 0
+05-22 13:11:33.195  1758  1758 I UsbImageView: iconMode:0
+05-22 13:11:33.195   399  2470 D audio_hw_primary: out_write:send data to dayin (threadID(2470), isSupportedLightShow = error)
+05-22 13:11:33.195  1758  1758 I UsbImageView: initObserver--onChanged：UsbModel{usbVisible=false}
+05-22 13:11:33.195  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.195  1758  1758 I ShowModeImageView: mode:0
+05-22 13:11:33.195  1758  1758 I ShowModeImageView: setImageView : 0 false
+05-22 13:11:33.195  1758  1758 I AqsImageView: iconMode:0
+05-22 13:11:33.195  1758  1758 I AqsImageView: onChanged--aqsState:false
+05-22 13:11:33.195  1758  1758 I AqsImageView: setAqsState stateOff: false iconMode : 0
+05-22 13:11:33.195  1758  1758 D AbsSensorFunction: isSensorSupported: sensor: 0x202300 , Status: notactive
+05-22 13:11:33.195  1758  1758 I CarUtils: isSupportAQS status ==1
+05-22 13:11:33.195  1758  1758 I PM25ImageView: iconMode:0
+05-22 13:11:33.195  1758  1758 D VoiceImageView: setIconMode==0
+05-22 13:11:33.195  1758  1758 I StatusBarView: setLeftTempStateMediaVisibility  packageName :com.yunpan.appmanage
+05-22 13:11:33.195  1758  1758 I LeftTempStateViewModel: setMediaVisibility : appSourcePackagecom.flyme.auto.musicpackageNamecom.yunpan.appmanage
+05-22 13:11:33.195  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.195   704  1051 E libipcp : socket_says_data_received: ipcp 38 32 144 639632772 3 5 1 0
+05-22 13:11:33.196  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.196  1517  1517 D ECarXCarCourseAngleService: onLocationChanged: Location[gps 33.482157,116.737977 hAcc=1 et=+5m55s195ms vel=0.0 vAcc=??? sAcc=??? bAcc=??? {Bundle[mParcelledData.dataSize=96]}]
+05-22 13:11:33.196  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.197  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():isActivity=true
+05-22 13:11:33.197  2548  3474 I debug_M1_dock20251121DockController: false，isNoControlDockAppList() called with: pkgName = [com.yunpan.appmanage]
+05-22 13:11:33.197  2548  3474 D debug_M1_dock20251121DockController: postWindowChangeMessage same App, return
+05-22 13:11:33.197  1517  1658 D VehicleHal: tltest callback  0x2140796c VehNotifAndLedFltStsByte0 {.timestamp = 0, .areaId = 536870912, .prop = 557873516, .status = AVAILABLE, .value = {.int32Values = [7], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.197  1517  1658 D VehicleHal: tltest callback  0x21407978 ZZZDimSignalEnd {.timestamp = 0, .areaId = 536870912, .prop = 557873528, .status = AVAILABLE, .value = {.int32Values = [7048], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.197  3547  3547 V InputMethodService: startInput(): editor=android.view.inputmethod.EditorInfo@994155c
+05-22 13:11:33.197  3547  3547 V InputMethodService: CALL: onFinishInput
+05-22 13:11:33.197  2548  4764 D debug_M1_dock20251121DockController: StatusBarManager onWindowChange
+05-22 13:11:33.198  2548  4764 D debug_M1_dock20251121parseSystemUiVisibility: 隐藏dock
+05-22 13:11:33.198  2548  4764 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():dockConfig=DockConfig{displayId=0, candidateDisplayId=0, focusedApp='com.yunpan.appmanage', clsName='com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell', disableFlags=0, type=1, behavior=0, systemUiVisibility=0xd06, subtreeSystemUiVisibility=0, isNavbarColorManagedByIme=false, appearance=0, opaqueAppearance=0, isFullscreen=false, dockStatus=DOCK_STATE_HIDE, extra='null'}
+05-22 13:11:33.198  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.198  2882  4286 I AbsCarSignal:::: Function:ECarXCarPropertyValue{mPropertyId=0x796c propertyName VehNotifAndLedFltStsByte0, mValue=7}
+05-22 13:11:33.198  2782  3978 I AbsCarSignal:::: Function:ECarXCarPropertyValue{mPropertyId=0x796c propertyName VehNotifAndLedFltStsByte0, mValue=7}
+05-22 13:11:33.198  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.192  1303  1303 D StatusBarManagerService: run() called size = [2]
+05-22 13:11:33.198  1303  1315 D InputMethodManagerService: hide the small icon for the input method
+05-22 13:11:33.198  3303  3479 I AbsCarSignal:::: Function:ECarXCarPropertyValue{mPropertyId=0x796c propertyName VehNotifAndLedFltStsByte0, mValue=7}
+05-22 13:11:33.198  2958  3554 I AbsCarSignal:::: Function:ECarXCarPropertyValue{mPropertyId=0x796c propertyName VehNotifAndLedFltStsByte0, mValue=7}
+05-22 13:11:33.198  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.198  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.199  2782  3978 D AbsSensorFunction: cannot notify value, because 0x300500is notavailable or not change
+05-22 13:11:33.199  2782  3978 D AbsSensorFunction: value.getPropertyId()31084
+05-22 13:11:33.199  3303  3479 D AbsSensorFunction: cannot notify value, because 0x300500is notavailable or not change
+05-22 13:11:33.199  3303  3479 D AbsSensorFunction: value.getPropertyId()31084
+05-22 13:11:33.199  2958  3554 D AbsSensorFunction: cannot notify value, because 0x300500is notavailable or not change
+05-22 13:11:33.199  2958  3554 D AbsSensorFunction: value.getPropertyId()31084
+05-22 13:11:33.199  2882  4286 D AbsSensorFunction: cannot notify value, because 0x300500is notavailable or not change
+05-22 13:11:33.199  2882  4286 D AbsSensorFunction: value.getPropertyId()31084
+05-22 13:11:33.199  2694  3388 I AbsCarSignal:::: Function:ECarXCarPropertyValue{mPropertyId=0x796c propertyName VehNotifAndLedFltStsByte0, mValue=7}
+05-22 13:11:33.199  2548  4764 D debug_M1_dock20251121DockController: onWindowChange():componentName=ComponentInfo{com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell}
+05-22 13:11:33.199  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.200  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.200  2694  3388 D AbsSensorFunction: cannot notify value, because 0x300500is notavailable or not change
+05-22 13:11:33.200  2694  3388 D AbsSensorFunction: value.getPropertyId()31084
+05-22 13:11:33.200  2548  4764 D debug_M1_dock20251121DockController: postWindowChangeMessage onWindowChange():isActivity=true
+05-22 13:11:33.200   704  1051 E libipcp : socket_says_data_received: ipcp 45 29 304 756876647 3 5 1 0
+05-22 13:11:33.200  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.200  2548  4764 I debug_M1_dock20251121DockController: false，isNoControlDockAppList() called with: pkgName = [com.yunpan.appmanage]
+05-22 13:11:33.201  2548  4764 D debug_M1_dock20251121DockController: postWindowChangeMessage same App, return
+05-22 13:11:33.201  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.201  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.202  1758  1758 I StatusBarView: onWindowChange--bundle:Bundle[mParcelledData.dataSize=336]
+05-22 13:11:33.202  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.202  1758  1758 I StatusBarView: displayId:0
+05-22 13:11:33.202  1758  1758 I StatusBarView: systemUiVisibility:110100000110
+05-22 13:11:33.202  1758  1758 I StatusBarView: packageName:com.yunpan.appmanage
+05-22 13:11:33.202  1758  1758 I StatusBarView: title:com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.202  1758  1758 I StatusBarView: type:1
+05-22 13:11:33.202  1758  1758 I StatusBarView: ttt=isLight:false--isDark:false
+05-22 13:11:33.202  1758  1758 E SystemUILog: ttt==setIconMode==0
+05-22 13:11:33.202  1758  1758 I StatusBarView: closeAllWindow
+05-22 13:11:33.202  1758  1758 D UserPopupWindowHelper: closeUserPopupWindow null
+05-22 13:11:33.202  1758  1758 D UserPopupWindowHelper: closeUserModePopupWindow null
+05-22 13:11:33.202  1758  1758 D WifiPopupWindowHelper: closeWifiPopupWindow null
+05-22 13:11:33.202  1758  1758 D BtPopupWindowHelper: closeBtPopupWindow null
+05-22 13:11:33.202  1758  1758 D ApPopupWindowHelper: closeApPopupWindow null
+05-22 13:11:33.202  1758  1758 D CloseWpcWindowHelper: closePopupWindow null
+05-22 13:11:33.202  1758  1758 D VolumeSettingPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.202  1758  1758 D MemoryCleanPopupWindowHelper: closeVolumePopupWindow null
+05-22 13:11:33.202  1758  1758 I StatusBarView: ttt=setIconMode--mode:0
+05-22 13:11:33.202  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.202  1758  1758 I WifiImageView: mode:0
+05-22 13:11:33.202  1758  1758 I WifiImageView: setImageView.wifiModel:WifiModel{wifiEnabled=false, wifiConnected=false, wifiLevel=0}WIFI_SIGNAL_STRENGTH:3 iconMode : 0
+05-22 13:11:33.202  1758  1758 I BluetoothImageView: iconMode:0
+05-22 13:11:33.202  1758  1758 I BluetoothImageView: setImageView--bluetoothModel : BluetoothModel{isOpen=10, isConnected=false} iconMode : 0
+05-22 13:11:33.202  1758  1758 I MobileNetworkImageView: iconMode:0
+05-22 13:11:33.202  1758  1758 D MobileNetworkImageView: setImageView apMobileModel: ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.202  1758  1758 D TelephonyIcons: getMobileIcon mNetworkType: 13, level: 4
+05-22 13:11:33.202  1758  1758 I AccessPointImageView: iconMode:0
+05-22 13:11:33.202  1758  1758 I AccessPointImageView:  setImageView apMobileModel : ApMobileModel{apEnabled=false, apConnectedNum=0, networkType=13, signalLevel=4}  iconMode : 0
+05-22 13:11:33.202  1758  1758 I DvrImageView: iconMode:0
+05-22 13:11:33.202  1758  1758 D DVRViewModel: getDvrCurrentModel, DvrMode=3
+05-22 13:11:33.202  1758  1758 I DvrImageView: dvr is not supported
+05-22 13:11:33.202  1758  1758 I LocationImageView: setIconMode Location iconMode:0
+05-22 13:11:33.202  1758  1758 I LocationImageView: setImageView Location iconMode:0
+05-22 13:11:33.202  1758  1758 I LocationImageView: setImageView isLocationEnabled:true
+05-22 13:11:33.202  1758  1758 I LocationImageView: setLocationState iconMode:0
+05-22 13:11:33.202  1758  1758 I MacImageView: iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.MacViewModel@e903786
+05-22 13:11:33.202  1758  1758 I MacImageView: setImageView isMacEnabled:true
+05-22 13:11:33.202  1758  1758 I MacImageView: setComplianceMacState iconMode:0
+05-22 13:11:33.202  1758  1758 I CameraImageView: setIconMode iconMode:0 viewModel com.geely.systemui.plugin.viewmodel.statusbar.CameraViewModel@bf6a847 topPkg com.yunpan.appmanage/com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.202  1758  1758 I CameraImageView: setImageView iconMode:0
+05-22 13:11:33.202  1758  1758 I CameraImageView: setImageView isCameraEnabled:false
+05-22 13:11:33.202  1758  1758 I Clock   : iconMode:0
+05-22 13:11:33.202  1758  1758 E SystemUILog: ttt==mMemoryCleanImageView设置mode ==com.geely.systemui.plugin.statusbar.memory.MemoryCleanImageView{d357874 G.E...... ......I. 0,0-0,0 #7f0900fd app:id/iv_clean}
+05-22 13:11:33.202  1758  1758 D MemoryCleanImageView: ttt==setIconMode=====0
+05-22 13:11:33.202  1758  1758 I WpcImageView: isLight:0
+05-22 13:11:33.202  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.203  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.203  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.203  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.203  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.203  1758  1758 I WpcImageView: setImageView--wpcModel:com.geely.systemui.plugin.model.statusbar.WpcModel@949a7c8
+05-22 13:11:33.203  1758  1758 I WpcImageView: wpcMode:0--wpcState:0
+05-22 13:11:33.203  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.203  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.203  1758  1758 D VehicleHelper:Wpc: isFunctionSupported function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] status:active
+05-22 13:11:33.203  1758  1758 I CarFunctionUtils: isActive--function:637600000--status: active
+05-22 13:11:33.203  1758  1758 D AbsCarFunction::Wpc: isFunctionSupported function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] status active
+05-22 13:11:33.203  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.203  1758  1758 D AbsCarFunction::Wpc: getFunctionValue function IWpc.WPC_FUNC_WORK_MODE [0x26010100] zone VehicleZone.ZONE_ALL [0x80000000] value 0
+05-22 13:11:33.203  1758  1758 D VehicleHelper:Wpc: getFunctionValue: function:IWpc.WPC_FUNC_WORK_MODE [0x26010100] result:IAudio.SOFT_BUTTON_SOUND_TYPE_OFF [0x0] 0
+05-22 13:11:33.203  1758  1758 I WpcViewModel: getWpcState state = 0
+05-22 13:11:33.203  1758  1758 I UsbImageView: iconMode:0
+05-22 13:11:33.203  1758  1758 I UsbImageView: initObserver--onChanged：UsbModel{usbVisible=false}
+05-22 13:11:33.203  1758  1758 I ShowModeImageView: mode:0
+05-22 13:11:33.203  1758  1758 I ShowModeImageView: setImageView : 0 false
+05-22 13:11:33.203  1758  1758 I AqsImageView: iconMode:0
+05-22 13:11:33.203  1758  1758 I AqsImageView: onChanged--aqsState:false
+05-22 13:11:33.204  1758  1758 I AqsImageView: setAqsState stateOff: false iconMode : 0
+05-22 13:11:33.204  1758  1758 D AbsSensorFunction: isSensorSupported: sensor: 0x202300 , Status: notactive
+05-22 13:11:33.204  1758  1758 I CarUtils: isSupportAQS status ==1
+05-22 13:11:33.204  1758  1758 I PM25ImageView: iconMode:0
+05-22 13:11:33.204  1758  1758 D VoiceImageView: setIconMode==0
+05-22 13:11:33.204  1758  1758 I StatusBarView: setLeftTempStateMediaVisibility  packageName :com.yunpan.appmanage
+05-22 13:11:33.204  1758  1758 I LeftTempStateViewModel: setMediaVisibility : appSourcePackagecom.flyme.auto.musicpackageNamecom.yunpan.appmanage
+05-22 13:11:33.204  1758  1758 D CommandQueue: handleMessage() called with: msg = [{ when=-11ms what=458752 target=com.android.systemui.statusbar.CommandQueue$H }]
+05-22 13:11:33.204  1517  1658 D VehicleHal: tltest callback  0x21407b7f EngNSafeEngNGrdt {.timestamp = 0, .areaId = 536870912, .prop = 557874047, .status = AVAILABLE, .value = {.int32Values = [24], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.204  1517  1658 D VehicleHal: tltest callback  0x21407baf RoadInclnRoadIncln {.timestamp = 0, .areaId = 536870912, .prop = 557874095, .status = AVAILABLE, .value = {.int32Values = [128], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.204  1517  1658 D VehicleHal: tltest callback  0x21407bb3 RollAgGlbVal {.timestamp = 0, .areaId = 536870912, .prop = 557874099, .status = AVAILABLE, .value = {.int32Values = [64810], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.205  1517  1658 D VehicleHal: tltest callback  0x21407bf3 ZZZVddmSignalEnd {.timestamp = 0, .areaId = 536870912, .prop = 557874163, .status = AVAILABLE, .value = {.int32Values = [7049], .floatValues = [], .int64Values = [], .bytes = [], .stringValue = }}
+05-22 13:11:33.205  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.206   399  1162 E libipcp : socket_says_data_received: ipcp 3 26 8 52035888 3 112 1 0
+05-22 13:11:33.206  1758  1758 D SysUIAppWatcherService: onAccessibilityEvent() called with: event = [EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 355205; PackageName: com.yunpan.appmanage; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.yunpan.appmanage.ui.ActivityShell; Text: [应用管家]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0]
+05-22 13:11:33.206  1533  1636 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.206  2834  2834 E AppWatcherService: [JRWindow][onAccessibilityEvent] event: 32
+05-22 13:11:33.206  2834  2834 E AppWatcherService: [JRWindow][onAccessibilityEvent], sTopPackageName: com.yunpan.appmanage, sTopClassName: com.yunpan.appmanage.ui.ActivityShell
+05-22 13:11:33.206  2834  2834 E [XCGestureService][1.0.20251121L(d2)]AppWatcherService: [(AppWatcherService.java:97)#OnAccessibilityEvent ] isFrontNavi:false
+05-22 13:11:33.206  2834  2834 E [XCGestureService][1.0.20251121L(d2)]AppWatcherService: [(AppWatcherService.java:100)#OnAccessibilityEvent ] isMultiScreen:true
+05-22 13:11:33.208  3547  3547 V InputMethodService: CALL: onStartInput
+05-22 13:11:33.209  1533  2439 D OneOSPermissionManager: checkPermission() permissionResult = [2], calling pid = 1303
+05-22 13:11:33.209   399  4962 D audio_hw_primary: start_output_stream: exit
+cs11_high:/ $ 
