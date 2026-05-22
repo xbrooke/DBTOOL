@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/window_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:layout_gravity="center" android:id="@+id/activationContainer" android:padding="0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/activationCard" android:background="@color/white" android:padding="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:elevation="4dp">
+            <LinearLayout android:orientation="vertical" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2">
+                <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="设备ID"/>
+                <TextView android:textSize="20sp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/tvDeviceId" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="XXXXXX"/>
+                <EditText android:textColor="@color/black" android:textColorHint="@color/black" android:id="@+id/etActivationCode" android:background="@android:color/transparent" android:paddingBottom="6dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:hint="输入激活码(不区分大小写)" android:inputType="text"/>
+                <View android:background="@color/cyan_500" android:layout_width="match_parent" android:layout_height="2dp" android:layout_marginTop="6dp"/>
+                <TextView android:textSize="16sp" android:textColor="@color/red_500" android:gravity="center" android:id="@+id/tvActivationStatusMessage" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/activation_failed_message"/>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+                    <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                        <Button android:id="@+id/btnActivateNow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="立即激活"/>
+                        <ProgressBar android:layout_gravity="center" android:id="@+id/progressLoading" android:visibility="gone" android:layout_width="24dp" android:layout_height="24dp" style="?android:attr/progressBarStyleSmall"/>
+                    </FrameLayout>
+                    <Button android:id="@+id/btnCancel" android:layout_width="0dp" android:layout_height="wrap_content" android:text="我再想想" android:layout_weight="1" android:layout_marginStart="8dp"/>
+                </LinearLayout>
+                <TextView android:textSize="16sp" android:textColor="@color/black" android:gravity="center" android:id="0x7f090259" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/activation_declaration"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/alipay_activation" android:scaleType="fitCenter" android:adjustViewBounds="true" android:maxHeight="330dp" android:contentDescription="wechat"/>
+                <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:src="@drawable/wechat_activation" android:scaleType="fitCenter" android:adjustViewBounds="true" android:maxHeight="330dp" android:contentDescription="alipay"/>
+                <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@color/red_500" android:gravity="center" android:id="0x7f090267" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="务必备注设备id与接收邮箱"/>
+                <TextView android:textSize="14sp" android:textColor="@color/black" android:gravity="center" android:id="0x7f09026d" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="忘记备注请抖音/B站/小红书私聊！第二天之前通过邮箱发出，请耐心等待！一旦发码无法退款，谨慎操作！"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

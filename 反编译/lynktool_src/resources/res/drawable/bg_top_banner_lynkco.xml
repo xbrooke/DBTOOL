@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/banner_base"/>
+        </shape>
+    </item>
+    <item android:left="30dp">
+        <bitmap android:gravity="center" android:src="@drawable/lynkco_logo_white_small"/>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/banner_overlay"/>
+        </shape>
+    </item>
+</layer-list>

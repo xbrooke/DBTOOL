@@ -1,0 +1,219 @@
+================================================================================
+                    lynktool.apk 资源清单
+================================================================================
+
+生成时间: 2026-05-22
+APK文件: lynktool.apk (6.57 MB)
+反编译工具: JADX, 7-Zip
+
+================================================================================
+                         文件统计
+================================================================================
+
+XML文件数量:        多个
+PNG文件数量:        多个
+.so文件数量:        4个
+DEX文件数量:        1个
+总大小:             6.57 MB
+
+================================================================================
+                      本地库文件 (.so)
+================================================================================
+
+1. libjiagu.so          829.14 KB    (ARM架构)
+2. libjiagu_a64.so    1,137.07 KB    (ARM64架构)
+3. libjiagu_x64.so      885.85 KB    (x86-64架构)
+4. libjiagu_x86.so      793.79 KB    (x86架构)
+
+总计: 3,645.85 KB (3.56 MB)
+
+说明: 这些是Jiagu加壳库，用于保护DEX文件和应用逻辑
+
+================================================================================
+                      主要目录结构
+================================================================================
+
+assets/
+├── .jgapp                    (16 bytes)      - 加壳配置文件
+├── libjiagu.so               (829 KB)        - ARM加壳库
+├── libjiagu_a64.so         (1,137 KB)        - ARM64加壳库
+├── libjiagu_x64.so           (886 KB)        - x86-64加壳库
+├── libjiagu_x86.so           (794 KB)        - x86加壳库
+├── dexopt/                                   - DEX优化文件
+└── fonts/                                    - 字体文件
+
+kotlin/
+├── annotation/                               - Kotlin注解库
+├── collections/                              - Kotlin集合库
+├── coroutines/                               - Kotlin协程库
+├── internal/                                 - Kotlin内部库
+├── ranges/                                   - Kotlin范围库
+└── reflect/                                  - Kotlin反射库
+
+META-INF/
+├── MANIFEST.MF                               - 清单文件
+├── CERT.SF                                   - 签名文件
+├── CERT.RSA                                  - 证书文件
+└── *.version                                 - 依赖库版本信息
+
+res/
+├── *.xml                                     - 布局和配置文件
+├── *.png                                     - 图片资源
+└── *.9.png                                   - 9-patch图片
+
+================================================================================
+                      关键文件说明
+================================================================================
+
+1. AndroidManifest.xml
+   - 应用清单文件（二进制格式）
+   - 包含应用权限、组件声明等信息
+   - 无法直接查看
+
+2. classes.dex
+   - 编译后的Java字节码
+   - 被Jiagu加壳保护
+   - 无法直接反编译为源代码
+
+3. .jgapp
+   - Jiagu加壳配置文件
+   - 包含加壳参数和配置
+
+4. libjiagu*.so
+   - 本地加壳库
+   - 运行时解密和保护DEX文件
+   - 支持多种CPU架构
+
+================================================================================
+                      依赖库列表
+================================================================================
+
+AndroidX库:
+- androidx.activity:activity
+- androidx.appcompat:appcompat
+- androidx.appcompat:appcompat-resources
+- androidx.arch.core:core-runtime
+- androidx.cardview:cardview
+- androidx.coordinatorlayout:coordinatorlayout
+- androidx.core:core
+- androidx.core:core-ktx
+- androidx.cursoradapter:cursoradapter
+- androidx.customview:customview
+- androidx.documentfile:documentfile
+- androidx.drawerlayout:drawerlayout
+- androidx.dynamicanimation:dynamicanimation
+- androidx.emoji2:emoji2
+- androidx.emoji2:emoji2-views-helper
+- androidx.fragment:fragment
+- androidx.interpolator:interpolator
+- androidx.legacy:legacy-support-core-utils
+- androidx.lifecycle:lifecycle-livedata
+- androidx.lifecycle:lifecycle-livedata-core
+- androidx.lifecycle:lifecycle-process
+- androidx.lifecycle:lifecycle-runtime
+- androidx.lifecycle:lifecycle-viewmodel
+- androidx.lifecycle:lifecycle-viewmodel-savedstate
+- androidx.loader:loader
+- androidx.localbroadcastmanager:localbroadcastmanager
+- androidx.print:print
+- androidx.profileinstaller:profileinstaller
+- androidx.recyclerview:recyclerview
+- androidx.savedstate:savedstate
+- androidx.security:security-crypto
+- androidx.startup:startup-runtime
+- androidx.tracing:tracing
+- androidx.transition:transition
+- androidx.vectordrawable:vectordrawable
+- androidx.vectordrawable:vectordrawable-animated
+- androidx.versionedparcelable:versionedparcelable
+- androidx.viewpager:viewpager
+- androidx.viewpager2:viewpager2
+
+Google Material库:
+- com.google.android.material:material
+
+Kotlin库:
+- kotlinx.coroutines:coroutines-android
+- kotlinx.coroutines:coroutines-core
+- kotlin标准库
+
+================================================================================
+                      技术特征
+================================================================================
+
+编程语言:           Java + Kotlin
+最小SDK版本:        API 28 (Android 9.0)
+目标SDK版本:        API 34 (Android 14)
+支持架构:           ARM, ARM64, x86, x86-64
+加壳方案:           Jiagu (360加壳)
+UI框架:             AndroidX + Material Design
+异步处理:           Kotlin Coroutines
+数据加密:           androidx.security:security-crypto
+
+================================================================================
+                      安全特性
+================================================================================
+
+1. 代码保护
+   - DEX文件被Jiagu加壳保护
+   - 运行时动态解密
+   - 防止反编译
+
+2. 数据加密
+   - 使用androidx.security库
+   - 支持加密存储
+
+3. 签名验证
+   - APK签名方案v1
+   - CERT.RSA证书验证
+
+================================================================================
+                      反编译限制
+================================================================================
+
+无法获取:
+✗ Java源代码 (DEX被加壳)
+✗ 完整的AndroidManifest (二进制格式)
+✗ 资源ID映射 (需要resources.arsc)
+✗ 字符串资源 (被混淆)
+
+可以获取:
+✓ APK结构和布局
+✓ 资源文件 (XML, PNG, 字体)
+✓ 依赖库信息
+✓ 本地库文件
+✓ 加壳配置
+
+================================================================================
+                      反编译文件位置
+================================================================================
+
+完整APK解压:
+c:\Users\Administrator\Desktop\方控\DBTOOL\DBTOOL\反编译\lynktool_unpacked_v3\
+
+Java源代码 (受限):
+c:\Users\Administrator\Desktop\方控\DBTOOL\DBTOOL\反编译\lynktool_source\
+
+分析报告:
+c:\Users\Administrator\Desktop\方控\DBTOOL\DBTOOL\反编译\反编译分析报告.md
+
+================================================================================
+                      建议
+================================================================================
+
+1. 如需进一步分析，可以使用:
+   - Frida框架进行动态分析
+   - IDA Pro进行本地库分析
+   - Xposed框架进行Hook分析
+
+2. 脱壳方法:
+   - 使用Frida脱壳脚本
+   - 使用Jiagu脱壳工具
+   - 动态内存dump
+
+3. 法律提示:
+   - 反编译仅用于学习研究
+   - 遵守当地法律法规
+   - 不得用于非法用途
+
+================================================================================

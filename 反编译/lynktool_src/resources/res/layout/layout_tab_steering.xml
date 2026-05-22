@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/layoutContentSteering" android:padding="16dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp">
+            <TextView android:textSize="20sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="方控设置" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:orientation="vertical" android:padding="12dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:paddingHorizontal="12dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="第三方多媒体app方向盘控制"/>
+                        <TextView android:textSize="13sp" android:textColor="#f44336" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="若有切歌异常请关闭此功能！(使用内置QQ音乐不建议打开此开关)"/>
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchSteeringWheel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleX="1.3" android:scaleY="1.3" android:layout_marginEnd="12dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:background="?android:attr/listDivider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+            <View android:background="@android:color/transparent" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="start|center_vertical" android:orientation="horizontal" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="高级功能: "/>
+                <Button android:id="@+id/btnActivationTop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="激活"/>
+                <TextView android:textSize="16sp" android:textColor="#4caf50" android:id="@+id/tvActivationStatus" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:background="?android:attr/listDivider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+            <View android:background="@android:color/transparent" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:padding="12dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:paddingHorizontal="12dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:id="@+id/tvClusterSyncLabel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="第三方多媒体app仪表盘同步"/>
+                        <TextView android:textSize="13sp" android:textColor="#f44336" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="桌面卡片仅支持展示不支持点击！"/>
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchClusterSync" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleX="1.3" android:scaleY="1.3" android:layout_marginEnd="12dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:background="?android:attr/listDivider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+            <View android:background="@android:color/transparent" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginVertical="6dp"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:textSize="18sp" android:textStyle="bold" android:id="@+id/tvKeyCustomizationHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="方向盘按键自定义" android:layout_marginEnd="6dp"/>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="(仪表盘处于"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/navigation" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/nav_icon_desc" android:layout_marginStart="4dp" android:layout_marginEnd="2dp"/>
+                <TextView android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="," android:layout_marginEnd="2dp"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/music" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/music_icon_desc" android:layout_marginEnd="2dp"/>
+                <TextView android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="," android:layout_marginEnd="2dp"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/telephone" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/telephone_icon_desc" android:layout_marginEnd="4dp"/>
+                <TextView android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="时可用)"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="center_vertical" android:background="@drawable/rounded_bg_secondary" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:layout_weight="1">
+                <TextView android:textSize="17sp" android:textStyle="bold" android:id="@+id/tvRightLongLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:text="长按 (右)" android:includeFontPadding="true" android:drawablePadding="6dp" android:layout_weight="1" android:drawableStart="@drawable/ic_arrow_right" android:drawableTint="?android:attr/textColorPrimary"/>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp">
+                    <ImageView android:id="@+id/ivRightLongPkg" android:visibility="invisible" android:layout_width="17sp" android:layout_height="17sp" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_marginEnd="6dp"/>
+                    <TextView android:textSize="17sp" android:id="@+id/tvRightLongPkg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="未设置" android:includeFontPadding="true"/>
+                </LinearLayout>
+                <Spinner android:id="@+id/spinnerRightLongAction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:spinnerMode="dropdown" android:layout_marginStart="12dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="center_vertical" android:background="@drawable/rounded_bg_secondary" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:layout_weight="1">
+                <TextView android:textSize="17sp" android:textStyle="bold" android:id="@+id/tvLeftLongLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:text="长按 (左)" android:includeFontPadding="true" android:drawablePadding="6dp" android:layout_weight="1" android:drawableStart="@drawable/ic_arrow_left" android:drawableTint="?android:attr/textColorPrimary"/>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp">
+                    <ImageView android:id="@+id/ivLeftLongPkg" android:visibility="invisible" android:layout_width="17sp" android:layout_height="17sp" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_marginEnd="6dp"/>
+                    <TextView android:textSize="17sp" android:id="@+id/tvLeftLongPkg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="未设置" android:includeFontPadding="true"/>
+                </LinearLayout>
+                <Spinner android:id="@+id/spinnerLeftLongAction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:spinnerMode="dropdown" android:layout_marginStart="12dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="center_vertical" android:background="@drawable/rounded_bg_secondary" android:padding="8dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:layout_weight="1">
+                <TextView android:textSize="17sp" android:textStyle="bold" android:id="@+id/tvCenterLongLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:text="长按" android:includeFontPadding="true" android:drawablePadding="6dp" android:layout_weight="1" android:drawableStart="@drawable/ic_circle" android:drawableTint="?android:attr/textColorPrimary"/>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp">
+                    <ImageView android:id="@+id/ivCenterLongPkg" android:visibility="invisible" android:layout_width="17sp" android:layout_height="17sp" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_marginEnd="6dp"/>
+                    <TextView android:textSize="17sp" android:id="@+id/tvCenterLongPkg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="未设置" android:includeFontPadding="true"/>
+                </LinearLayout>
+                <Spinner android:id="@+id/spinnerCenterLongAction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:spinnerMode="dropdown" android:layout_marginStart="12dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

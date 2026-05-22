@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/layoutContentPush" android:padding="12dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:minHeight="80dp" android:layout_weight="0.3" android:layout_marginStart="11dp" android:layout_marginEnd="5dp">
+                <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PushPlus Token"/>
+                <TextView android:textSize="13sp" android:textColor="?android:attr/textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="推送通过pushplus平台实现微信通知"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="0dp" android:layout_height="wrap_content" android:minHeight="80dp" android:layout_weight="1.2" android:layout_marginStart="8dp" android:layout_marginEnd="30dp">
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp" android:layout_height="wrap_content" android:hint="请输入用户Token" android:layout_weight="1" android:layout_marginEnd="8dp" app:boxStrokeColor="@color/cyan_500" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText android:textSize="15sp" android:id="@+id/etPushToken" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton android:textSize="14sp" android:textColor="@color/white" android:id="@+id/btnSaveToken" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="72dp" android:minHeight="52dp" android:text="保存" android:layout_marginEnd="6dp" android:paddingHorizontal="16dp" app:backgroundTint="@color/cyan_500" app:cornerRadius="8dp" style="@style/Widget.MaterialComponents.Button"/>
+                <com.google.android.material.button.MaterialButton android:textSize="14sp" android:id="@+id/btnTestPush" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="72dp" android:minHeight="52dp" android:text="测试" android:layout_marginEnd="12dp" android:paddingHorizontal="16dp" app:cornerRadius="8dp" style="?attr/materialButtonOutlinedStyle"/>
+                <TextView android:textSize="14sp" android:textColor="#f44336" android:ellipsize="end" android:id="@+id/tvTestStatus" android:visibility="invisible" android:layout_width="0dp" android:layout_height="wrap_content" android:text="已发送测试消息" android:maxLines="1" android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <View android:background="?android:attr/listDivider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+            <View android:background="?android:attr/listDivider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:layout_marginStart="12dp" android:layout_marginVertical="6dp"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="12dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:paddingHorizontal="12dp">
+                    <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/push_master_switch" android:layout_weight="1"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchPushMaster" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View android:background="?android:attr/listDivider" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+                <LinearLayout android:orientation="vertical" android:id="@+id/layoutPushEvents" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="12dp">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/push_event_boot" android:layout_weight="1"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchPushEventBoot" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:background="?android:attr/listDivider" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/push_event_ignition" android:layout_weight="1"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchPushEventIgnition" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:background="?android:attr/listDivider" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/push_event_engine_off" android:layout_weight="1"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchPushEventEngineOff" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:background="?android:attr/listDivider" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp">
+                        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/push_event_parking" android:layout_weight="1"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchPushEventParking" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:background="?android:attr/listDivider" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginEnd="12dp" android:layout_marginVertical="6dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp">
+                <ImageView android:id="0x7f090115" android:layout_width="200dp" android:layout_height="200dp" android:src="@drawable/pushplus" android:scaleType="fitCenter" android:contentDescription="PushPlus二维码"/>
+                <TextView android:textSize="14sp" android:textColor="?android:attr/textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="扫码申请用户Token"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/bg_dialog_rounded" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:textSize="20sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="@string/app_necessary_permissions"/>
+    <include android:id="@+id/dialogStatusSecureSettings" layout="@layout/item_permission_status"/>
+    <include android:id="@+id/dialogStatusAccessibility" layout="@layout/item_permission_status"/>
+    <include android:id="@+id/dialogStatusOverlay" layout="@layout/item_permission_status"/>
+    <include android:id="@+id/dialogStatusStorage" layout="@layout/item_permission_status"/>
+    <include android:id="@+id/dialogStatusBattery" layout="@layout/item_permission_status"/>
+    <include android:id="@+id/dialogStatusNotification" layout="@layout/item_permission_status"/>
+    <Button android:textSize="16sp" android:id="@+id/btnAutoRepair" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/btn_auto_repair" style="@style/Widget.MaterialComponents.Button"/>
+</LinearLayout>

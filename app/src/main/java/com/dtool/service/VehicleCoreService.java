@@ -77,7 +77,7 @@ public class VehicleCoreService extends Service {
 
         builder.setContentTitle("DBTOOL 运行中")
             .setContentText("正在监听音乐播放状态")
-            .setSmallIcon(R.mipmap.ic_launcher)  // ✅ 使用项目图标
+            .setSmallIcon(android.R.drawable.ic_dialog_info)  // ✅ 使用系统图标
             .setContentIntent(pendingIntent)
             .setOngoing(true);
 

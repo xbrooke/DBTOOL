@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:layout_gravity="start|top" android:id="@+id/layoutHud" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="728px" android:layout_height="190px" android:layout_marginTop="720px"/>
+</FrameLayout>

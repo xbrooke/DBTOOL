@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="?android:attr/colorBackground" android:padding="24dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="20sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:text="@string/dialog_release_notice_title"/>
+    <ScrollView android:background="@drawable/rounded_bg_secondary" android:padding="8dp" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18sp" android:textColor="?android:attr/textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:text="@string/dialog_release_notice_rules" android:lineSpacingMultiplier="1.3"/>
+        </LinearLayout>
+    </ScrollView>
+    <Button android:textSize="16sp" android:textStyle="bold" android:id="@+id/btnCloseNotice" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/dialog_release_notice_acknowledged" android:backgroundTint="?attr/colorPrimary"/>
+</LinearLayout>

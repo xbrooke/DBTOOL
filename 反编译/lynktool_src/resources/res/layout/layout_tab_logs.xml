@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+        <Button android:textSize="17sp" android:id="0x7f09008d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_view_boot_log" android:paddingStart="16dp" android:paddingEnd="16dp"/>
+        <Button android:textSize="17sp" android:id="0x7f09008e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_view_runtime_log" android:paddingStart="16dp" android:paddingEnd="16dp" android:layout_marginStart="8dp"/>
+        <Button android:textSize="17sp" android:id="0x7f090082" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_pause_log_updates" android:paddingStart="16dp" android:paddingEnd="16dp" android:layout_marginStart="8dp"/>
+        <Button android:textSize="17sp" android:id="0x7f090068" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_clear_boot_log" android:paddingStart="16dp" android:paddingEnd="16dp" android:layout_marginStart="8dp"/>
+        <Button android:textSize="17sp" android:id="0x7f090069" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_clear_runtime_log" android:paddingStart="16dp" android:paddingEnd="16dp" android:layout_marginStart="8dp"/>
+        <Button android:textSize="17sp" android:id="0x7f09006e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56dp" android:text="@string/btn_export_log" android:paddingStart="16dp" android:paddingEnd="16dp" android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    <ScrollView android:id="0x7f090219" android:layout_width="match_parent" android:layout_height="0dp" android:fillViewport="true" android:layout_weight="1">
+        <TextView android:textSize="14sp" android:textColor="?android:attr/textColorPrimary" android:id="0x7f09026b" android:background="?android:attr/colorBackground" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:textIsSelectable="true" android:fontFamily="monospace"/>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.navitool" platformBuildVersionCode="34" platformBuildVersionName="14" android:versionCode="1" android:versionName="0.5.6-260516-2154" android:compileSdkVersion="34" android:compileSdkVersionCodename="14">
+    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="34"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.car.permission.CAR_INFO"/>
+    <uses-permission android:name="android.car.permission.CAR_ENERGY"/>
+    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_ENVIRONMENT"/>
+    <uses-permission android:name="android.car.permission.CONTROL_CAR_CLIMATE"/>
+    <queries>
+        <package android:name="com.geely.map"/>
+        <package android:name="com.autonavi.amapauto"/>
+        <package android:name="com.geely.online.service"/>
+        <package android:name="com.geely.mediawidget"/>
+    </queries>
+    <permission android:name="cn.navitool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="cn.navitool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:theme="@style/Theme.NaviTool" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="com.stub.StubApp" android:allowBackup="true" android:supportsRtl="true" android:extractNativeLibs="true" android:fullBackupContent="@xml/backup_rules" android:roundIcon="@mipmap/ic_launcher" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true" android:dataExtractionRules="@xml/data_extraction_rules">
+        <activity android:name="cn.navitool.activity.MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.NaviTool.Dialog" android:label="激活" android:name="cn.navitool.activity.ActivationActivity" android:exported="false"/>
+        <meta-data android:name="com.autonavi.amapauto.protocol.apikey" android:value="AlSimulate"/>
+        <receiver android:name="cn.navitool.service.BootReceiver" android:enabled="true" android:exported="true" android:directBootAware="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.android.server.WifiManager.action.START_WIFI"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="@string/app_name" android:name="cn.navitool.service.KeepAliveAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_config"/>
+        </service>
+        <service android:label="@string/app_name" android:name="cn.navitool.service.MediaNotificationListener" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:name="cn.navitool.service.VehicleCoreService" android:exported="false" android:foregroundServiceType="dataSync"/>
+        <receiver android:name="cn.navitool.receiver.DesktopCardReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="cn.navitool.action.HOST_WIDGET_REFRESH"/>
+                <action android:name="ecarx.intent.broadcast.action.MEDIA_CONTROL_RECEIVER"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_TOGGLE_PLAY"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_NEXT"/>
+                <action android:name="com.geely.mediawidget.ACTION_WIDGET_PREV"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="cn.navitool.service.FloatingBallService" android:exported="false" android:foregroundServiceType="">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="floating ball service"/>
+        </service>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="cn.navitool.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:name="cn.navitool.bridge.NowPlayingProvider" android:enabled="true" android:exported="true" android:authorities="cn.navitool.media" android:grantUriPermissions="true"/>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="cn.navitool.androidx-startup">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unpacker.hook"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="LynkTool脱壳器"
+        android:name=".HookApplication"
+        android:icon="@mipmap/ic_launcher">
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:label="LynkTool脱壳器">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+    <!-- Xposed API -->
+    <meta-data
+        android:name="xposedmodule"
+        android:value="true"/>
+    <meta-data
+        android:name="xposeddescription"
+        android:value="360加固保DEX解密模块 - 用于提取lynktool等加固App的原始DEX"/>
+    <meta-data
+        android:name="xposedminversion"
+        android:value="89"/>
+
+</manifest>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@drawable/bg_floating_menu" android:padding="16dp" android:layout_width="800dp" android:layout_height="480dp">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="220dp" android:layout_height="match_parent" android:paddingEnd="12dp">
+        <TextView android:textSize="23sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="21dp" android:layout_marginBottom="23dp" android:text="座椅位置"/>
+        <FrameLayout android:id="@+id/btnSeatPosition1" android:background="@drawable/bg_seat_position_button" android:focusable="true" android:clickable="true" android:layout_width="160dp" android:layout_height="96dp" android:layout_marginTop="16dp" android:layout_marginBottom="20dp" android:foreground="?android:attr/selectableItemBackgroundBorderless">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="16dp" android:paddingEnd="16dp">
+                <ImageView android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/car_seat_white" android:scaleType="fitCenter" android:contentDescription="座椅位置一"/>
+                <TextView android:textSize="32sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="一" android:layout_weight="1"/>
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/btnSeatPosition2" android:background="@drawable/bg_seat_position_button" android:focusable="true" android:clickable="true" android:layout_width="160dp" android:layout_height="96dp" android:layout_marginBottom="20dp" android:foreground="?android:attr/selectableItemBackgroundBorderless">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="16dp" android:paddingEnd="16dp">
+                <ImageView android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/car_seat_white" android:scaleType="fitCenter" android:contentDescription="座椅位置二"/>
+                <TextView android:textSize="32sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="二" android:layout_weight="1"/>
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/btnSeatPosition3" android:background="@drawable/bg_seat_position_button" android:focusable="true" android:clickable="true" android:layout_width="160dp" android:layout_height="96dp" android:foreground="?android:attr/selectableItemBackgroundBorderless">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="16dp" android:paddingEnd="16dp">
+                <ImageView android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/car_seat_white" android:scaleType="fitCenter" android:contentDescription="座椅位置三"/>
+                <TextView android:textSize="32sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="三" android:layout_weight="1"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+    <View android:background="#55ffffff" android:layout_width="1dp" android:layout_height="match_parent" android:layout_marginTop="10dp" android:layout_marginBottom="10dp"/>
+    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:paddingStart="16dp">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="快速启动" android:layout_centerVertical="true"/>
+            <ImageView android:id="@+id/ivClose" android:background="?android:attr/selectableItemBackgroundBorderless" android:focusable="true" android:clickable="true" android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_close_clear_cancel" android:layout_centerVertical="true" android:contentDescription="关闭" android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp">
+            <TextView android:textSize="14sp" android:textColor="#80ffffff" android:gravity="center" android:layout_gravity="center" android:id="@+id/tvHint" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:text="长按下方图标拖放到此以固定显示"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvTopRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="80dp" android:overScrollMode="never"/>
+        </FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvAppList" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

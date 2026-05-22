@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/layoutContentHud" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+            <TextView android:textSize="22sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/header_hud_control"/>
+            <HorizontalScrollView android:scrollbars="none" android:layout_width="0dp" android:layout_height="wrap_content" android:fillViewport="true" android:layout_weight="1" android:layout_marginStart="12dp" android:layout_marginEnd="12dp">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/layoutHudEditorControls" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <Button android:textSize="18sp" android:id="@+id/btnHudSwitchMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_ar_mode" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudAdd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_add" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudModify" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_modify" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudDelete" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_delete" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudSave" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_save" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudReset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_reset" android:paddingStart="18dp" android:paddingEnd="18dp" android:layout_marginEnd="8dp"/>
+                    <Button android:textSize="18sp" android:id="@+id/btnHudSnowMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="58dp" android:text="@string/action_snow_mode" android:paddingStart="18dp" android:paddingEnd="18dp"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchHud" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleX="1.25" android:scaleY="1.25" android:layout_marginStart="12dp" android:layout_marginEnd="130dp"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <FrameLayout android:id="@+id/layoutHudPreviewContainer" android:background="@drawable/border_hud_preview" android:padding="4dp" android:visibility="gone" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <FrameLayout android:id="@+id/layoutHudPreview" android:background="#000000" android:visibility="gone" android:clipChildren="false" android:clipToPadding="false" android:layout_width="1456px" android:layout_height="374px"/>
+                    <View android:layout_gravity="center" android:background="@drawable/line_dashed_cyan" android:layout_width="374px" android:layout_height="4dp" android:rotation="90" android:layerType="software"/>
+                </FrameLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/layoutHudAutoHideGearItem" android:visibility="gone" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="19sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/action_auto_hide_gear"/>
+                            <TextView android:textSize="14sp" android:textColor="?android:attr/textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/action_auto_hide_gear_summary"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchHudAutoHideGear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleX="1.3" android:scaleY="1.3" android:layout_marginStart="12dp"/>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/layoutHudSongWidthControl" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp">
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/action_song_component_width"/>
+                            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="320dp" android:layout_height="wrap_content" android:layout_marginTop="2dp">
+                                <SeekBar android:id="@+id/seekHudSongWidth" android:layout_width="match_parent" android:layout_height="56dp" android:maxHeight="56dp" android:max="240" android:progress="140" android:minHeight="56dp" android:thumb="@drawable/seekbar_thumb_hud_large" android:paddingStart="18dp" android:paddingEnd="18dp" android:splitTrack="false"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp">
+                            <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/action_song_marquee_pause"/>
+                            <Spinner android:id="@+id/spinnerHudMarqueePause" android:layout_width="wrap_content" android:layout_height="48dp" android:layout_marginTop="2dp" android:minWidth="140dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <com.google.android.material.switchmaterial.SwitchMaterial android:textSize="18sp" android:id="@+id/switchHudPreviewAll" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:minHeight="56dp" android:text="@string/action_preview_all" android:switchPadding="10dp"/>
+                <LinearLayout android:orientation="vertical" android:id="@+id/layoutHudCruiseCountSettings" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                    <TextView android:textSize="16sp" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="6dp" android:text="@string/action_cruise_lane_count"/>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="false">
+                        <LinearLayout android:orientation="horizontal" android:id="@+id/layoutHudCruiseLaneCountButtons" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount1" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="1" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount2" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="2" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount3" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="3" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount4" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="4" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount5" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="5" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount6" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="6" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount7" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="7" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="16sp" android:id="@+id/btnHudLaneCount8" android:layout_width="52dp" android:layout_height="wrap_content" android:minHeight="48dp" android:text="8"/>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                    <TextView android:textSize="16sp" android:textColor="?android:attr/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_marginBottom="6dp" android:text="@string/action_cruise_traffic_light_count"/>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="false">
+                        <LinearLayout android:orientation="horizontal" android:id="@+id/layoutHudCruiseTrafficLightCountButtons" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <Button android:textSize="15sp" android:id="@+id/btnHudCruiseLightCount1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/action_cruise_light_mode_1" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="15sp" android:id="@+id/btnHudCruiseLightCount2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/action_cruise_light_mode_2" android:layout_marginEnd="6dp"/>
+                            <Button android:textSize="15sp" android:id="@+id/btnHudCruiseLightCount3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/action_cruise_light_mode_3"/>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

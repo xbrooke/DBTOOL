@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ImageView android:id="@+id/ivFloatingBall" android:background="@drawable/bg_floating_ball" android:padding="12dp" android:layout_width="65dp" android:layout_height="65dp" android:src="@android:drawable/ic_menu_sort_by_size" android:contentDescription="悬浮球"/>
+</FrameLayout>
