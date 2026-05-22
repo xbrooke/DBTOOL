@@ -2,6 +2,14 @@ plugins {
     id 'com.android.application'
 }
 
+// Generate app name with version and date
+def getAppName() {
+    def versionName = "1.0.0"
+    def dateFormat = new java.text.SimpleDateFormat("yyyyMMdd")
+    def buildDate = dateFormat.format(new Date())
+    return "DBTOOL-${versionName}-${buildDate}"
+}
+
 android {
     namespace 'com.dtool'
     compileSdk 34
@@ -12,6 +20,9 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
+        
+        // Pass app name to resources
+        resValue "string", "app_name", getAppName()
     }
 
     packagingOptions {

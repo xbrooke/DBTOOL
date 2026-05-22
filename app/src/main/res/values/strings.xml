@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App name is generated dynamically in build.gradle with format: DBTOOL-version-date -->
     <string name="app_name">DBTOOL</string>
     <string name="activation_title">激活服务</string>
     <string name="notification_listener_label">通知监听服务</string>
